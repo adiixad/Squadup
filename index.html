@@ -14,7 +14,7 @@
   <!-- ═══════════════════ NAVBAR ═══════════════════ -->
   <nav class="navbar" id="navbar">
     <div class="nav-inner">
-      <a href="#" class="nav-logo">
+      <a href="/" class="nav-logo">
         <div class="logo-mark">
           <svg width="28" height="28" viewBox="0 0 28 28" fill="none" xmlns="http://www.w3.org/2000/svg">
             <rect width="28" height="28" rx="8" fill="#1a1a1a"/>
@@ -56,62 +56,165 @@
     </div>
   </nav>
 
-  <!-- ═══════════════════ HERO ═══════════════════ -->
+  <!-- ═══════════════════ HERO (split layout) ═══════════════════ -->
   <section class="hero" id="hero">
     <div class="hero-bg-grid"></div>
-
     <div class="hero-orb hero-orb--1"></div>
     <div class="hero-orb hero-orb--2"></div>
 
-    <div class="hero-inner">
-      <div class="hero-eyebrow reveal">
-        <span class="dot-pulse"></span>
-        All-in-one gaming social platform
+    <div class="hero-split">
+
+      <!-- LEFT: text content -->
+      <div class="hero-left">
+        <div class="hero-eyebrow reveal">
+          <span class="dot-pulse"></span>
+          All-in-one gaming social platform
+        </div>
+
+        <h1 class="hero-title reveal reveal--delay-1">
+          Your squad.<br/>
+          <em>One place.</em>
+        </h1>
+
+        <p class="hero-sub reveal reveal--delay-2">
+          SquadUp brings together everything you need — stream, chat, share, discover —
+          without switching between five apps. Built for gamers who actually play together.
+        </p>
+
+        <div class="hero-cta reveal reveal--delay-3">
+          <a href="#connect" class="btn-primary">
+            Join the squad
+            <svg width="16" height="16" viewBox="0 0 16 16" fill="none">
+              <path d="M3 8H13M13 8L9 4M13 8L9 12" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/>
+            </svg>
+          </a>
+          <a href="#features" class="btn-ghost">See features</a>
+        </div>
+
+        <div class="hero-platforms reveal reveal--delay-4">
+          <span class="platform-label">Replaces</span>
+          <div class="platform-pills">
+            <div class="pill">
+              <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r="1" fill="currentColor" stroke="none"/></svg>
+              Instagram
+            </div>
+            <div class="pill">
+              <svg width="15" height="15" viewBox="0 0 24 24" fill="currentColor"><path d="M20.317 4.37a19.791 19.791 0 0 0-4.885-1.515.074.074 0 0 0-.079.037c-.21.375-.444.864-.608 1.25a18.27 18.27 0 0 0-5.487 0 12.64 12.64 0 0 0-.617-1.25.077.077 0 0 0-.079-.037A19.736 19.736 0 0 0 3.677 4.37a.07.07 0 0 0-.032.027C.533 9.046-.32 13.58.099 18.057a.082.082 0 0 0 .031.057 19.9 19.9 0 0 0 5.993 3.03.078.078 0 0 0 .084-.028c.462-.63.874-1.295 1.226-1.994a.076.076 0 0 0-.041-.106 13.107 13.107 0 0 1-1.872-.892.077.077 0 0 1-.008-.128 10.2 10.2 0 0 0 .372-.292.074.074 0 0 1 .077-.01c3.928 1.793 8.18 1.793 12.062 0a.074.074 0 0 1 .078.01c.12.098.246.198.373.292a.077.077 0 0 1-.006.127 12.299 12.299 0 0 1-1.873.892.077.077 0 0 0-.041.107c.36.698.772 1.362 1.225 1.993a.076.076 0 0 0 .084.028 19.839 19.839 0 0 0 6.002-3.03.077.077 0 0 0 .032-.054c.5-5.177-.838-9.674-3.549-13.66a.061.061 0 0 0-.031-.03z"/></svg>
+              Discord
+            </div>
+            <div class="pill">
+              <svg width="15" height="15" viewBox="0 0 24 24" fill="currentColor"><path d="M11.944 0A12 12 0 0 0 0 12a12 12 0 0 0 12 12 12 12 0 0 0 12-12A12 12 0 0 0 12 0a12 12 0 0 0-.056 0zm4.962 7.224c.1-.002.321.023.465.14a.506.506 0 0 1 .171.325c.016.093.036.306.02.472-.18 1.898-.96 6.502-1.36 8.627-.168.9-.499 1.201-.82 1.23-.696.065-1.225-.46-1.9-.902-1.056-.693-1.653-1.124-2.678-1.8-1.185-.78-.417-1.21.258-1.91.177-.184 3.247-2.977 3.307-3.23.007-.032.014-.15-.056-.212s-.174-.041-.249-.024c-.106.024-1.793 1.14-5.061 3.345-.48.33-.913.49-1.302.48-.428-.008-1.252-.241-1.865-.44-.752-.245-1.349-.374-1.297-.789.027-.216.325-.437.893-.663 3.498-1.524 5.83-2.529 6.998-3.014 3.332-1.386 4.025-1.627 4.476-1.635z"/></svg>
+              Telegram
+            </div>
+            <div class="pill">
+              <svg width="15" height="15" viewBox="0 0 24 24" fill="currentColor"><path d="M11.571 4.714h1.715v5.143H11.57zm4.715 0H18v5.143h-1.714zM6 0L1.714 4.286v15.428h5.143V24l4.286-4.286h3.428L22.286 12V0zm14.571 11.143l-3.428 3.428h-3.429l-3 3v-3H6.857V1.714h13.714z"/></svg>
+              Twitch
+            </div>
+          </div>
+        </div>
       </div>
 
-      <h1 class="hero-title reveal reveal--delay-1">
-        Your squad.<br/>
-        <em>One place.</em>
-      </h1>
+      <!-- RIGHT: animated gamer icons grid -->
+      <div class="hero-right reveal reveal--delay-2">
+        <div class="gamer-icons-grid">
 
-      <p class="hero-sub reveal reveal--delay-2">
-        SquadUp brings together everything you need — stream, chat, share, discover —
-        without switching between five apps. Built for gamers who actually play together.
-      </p>
+          <div class="gicon-card gicon-card--lg gicon-pulse">
+            <svg class="gicon" viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <!-- Gamepad -->
+              <rect x="6" y="16" width="36" height="20" rx="10" fill="none" stroke="currentColor" stroke-width="2.5"/>
+              <line x1="16" y1="22" x2="16" y2="30" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"/>
+              <line x1="12" y1="26" x2="20" y2="26" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"/>
+              <circle cx="32" cy="24" r="2" fill="currentColor"/>
+              <circle cx="36" cy="28" r="2" fill="currentColor"/>
+              <circle cx="28" cy="28" r="2" fill="currentColor"/>
+              <circle cx="32" cy="32" r="2" fill="currentColor"/>
+            </svg>
+            <span class="gicon-label">Play</span>
+          </div>
 
-      <div class="hero-cta reveal reveal--delay-3">
-        <a href="#connect" class="btn-primary">
-          Join the squad
-          <svg width="16" height="16" viewBox="0 0 16 16" fill="none">
-            <path d="M3 8H13M13 8L9 4M13 8L9 12" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/>
-          </svg>
-        </a>
-        <a href="#features" class="btn-ghost">See features</a>
-      </div>
+          <div class="gicon-card gicon-float-1">
+            <svg class="gicon" viewBox="0 0 48 48" fill="none">
+              <!-- Live stream camera -->
+              <rect x="4" y="12" width="28" height="22" rx="4" fill="none" stroke="currentColor" stroke-width="2.5"/>
+              <path d="M32 18l10-5v20l-10-5V18z" stroke="currentColor" stroke-width="2.5" stroke-linejoin="round"/>
+              <circle cx="14" cy="23" r="4" fill="currentColor" opacity="0.3"/>
+              <circle cx="14" cy="23" r="2" fill="currentColor"/>
+            </svg>
+            <span class="gicon-label">Stream</span>
+          </div>
 
-      <div class="hero-platforms reveal reveal--delay-4">
-        <span class="platform-label">Replaces</span>
-        <div class="platform-pills">
-          <div class="pill">
-            <!-- Instagram icon -->
-            <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r="1" fill="currentColor" stroke="none"/></svg>
-            Instagram
+          <div class="gicon-card gicon-float-2">
+            <svg class="gicon" viewBox="0 0 48 48" fill="none">
+              <!-- Trophy -->
+              <path d="M16 6h16v16a8 8 0 0 1-16 0V6z" stroke="currentColor" stroke-width="2.5" fill="none"/>
+              <path d="M10 8H16v10a6 6 0 0 1-6-6V8z" stroke="currentColor" stroke-width="2" fill="none"/>
+              <path d="M32 8h6v4a6 6 0 0 1-6 6V8z" stroke="currentColor" stroke-width="2" fill="none"/>
+              <line x1="24" y1="30" x2="24" y2="38" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"/>
+              <rect x="16" y="38" width="16" height="4" rx="2" fill="currentColor" opacity="0.5"/>
+            </svg>
+            <span class="gicon-label">Win</span>
           </div>
-          <div class="pill">
-            <!-- Discord icon -->
-            <svg width="15" height="15" viewBox="0 0 24 24" fill="currentColor"><path d="M20.317 4.37a19.791 19.791 0 0 0-4.885-1.515.074.074 0 0 0-.079.037c-.21.375-.444.864-.608 1.25a18.27 18.27 0 0 0-5.487 0 12.64 12.64 0 0 0-.617-1.25.077.077 0 0 0-.079-.037A19.736 19.736 0 0 0 3.677 4.37a.07.07 0 0 0-.032.027C.533 9.046-.32 13.58.099 18.057a.082.082 0 0 0 .031.057 19.9 19.9 0 0 0 5.993 3.03.078.078 0 0 0 .084-.028c.462-.63.874-1.295 1.226-1.994a.076.076 0 0 0-.041-.106 13.107 13.107 0 0 1-1.872-.892.077.077 0 0 1-.008-.128 10.2 10.2 0 0 0 .372-.292.074.074 0 0 1 .077-.01c3.928 1.793 8.18 1.793 12.062 0a.074.074 0 0 1 .078.01c.12.098.246.198.373.292a.077.077 0 0 1-.006.127 12.299 12.299 0 0 1-1.873.892.077.077 0 0 0-.041.107c.36.698.772 1.362 1.225 1.993a.076.076 0 0 0 .084.028 19.839 19.839 0 0 0 6.002-3.03.077.077 0 0 0 .032-.054c.5-5.177-.838-9.674-3.549-13.66a.061.061 0 0 0-.031-.03z"/></svg>
-            Discord
+
+          <div class="gicon-card gicon-float-3">
+            <svg class="gicon" viewBox="0 0 48 48" fill="none">
+              <!-- Headset / Squad comms -->
+              <path d="M10 26v-4a14 14 0 0 1 28 0v4" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"/>
+              <rect x="6" y="26" width="8" height="10" rx="4" fill="none" stroke="currentColor" stroke-width="2.5"/>
+              <rect x="34" y="26" width="8" height="10" rx="4" fill="none" stroke="currentColor" stroke-width="2.5"/>
+              <path d="M38 36v2a6 6 0 0 1-6 6h-4" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"/>
+            </svg>
+            <span class="gicon-label">Squad</span>
           </div>
-          <div class="pill">
-            <!-- Telegram icon -->
-            <svg width="15" height="15" viewBox="0 0 24 24" fill="currentColor"><path d="M11.944 0A12 12 0 0 0 0 12a12 12 0 0 0 12 12 12 12 0 0 0 12-12A12 12 0 0 0 12 0a12 12 0 0 0-.056 0zm4.962 7.224c.1-.002.321.023.465.14a.506.506 0 0 1 .171.325c.016.093.036.306.02.472-.18 1.898-.96 6.502-1.36 8.627-.168.9-.499 1.201-.82 1.23-.696.065-1.225-.46-1.9-.902-1.056-.693-1.653-1.124-2.678-1.8-1.185-.78-.417-1.21.258-1.91.177-.184 3.247-2.977 3.307-3.23.007-.032.014-.15-.056-.212s-.174-.041-.249-.024c-.106.024-1.793 1.14-5.061 3.345-.48.33-.913.49-1.302.48-.428-.008-1.252-.241-1.865-.44-.752-.245-1.349-.374-1.297-.789.027-.216.325-.437.893-.663 3.498-1.524 5.83-2.529 6.998-3.014 3.332-1.386 4.025-1.627 4.476-1.635z"/></svg>
-            Telegram
+
+          <div class="gicon-card gicon-card--lg gicon-float-4">
+            <svg class="gicon" viewBox="0 0 48 48" fill="none">
+              <!-- Lightning / rank -->
+              <polygon points="28,4 14,26 22,26 20,44 34,22 26,22" stroke="currentColor" stroke-width="2.5" stroke-linejoin="round" fill="currentColor" opacity="0.15"/>
+              <polygon points="28,4 14,26 22,26 20,44 34,22 26,22" stroke="currentColor" stroke-width="2.5" stroke-linejoin="round" fill="none"/>
+            </svg>
+            <span class="gicon-label">Rank Up</span>
           </div>
-          <div class="pill">
-            <!-- Twitch icon -->
-            <svg width="15" height="15" viewBox="0 0 24 24" fill="currentColor"><path d="M11.571 4.714h1.715v5.143H11.57zm4.715 0H18v5.143h-1.714zM6 0L1.714 4.286v15.428h5.143V24l4.286-4.286h3.428L22.286 12V0zm14.571 11.143l-3.428 3.428h-3.429l-3 3v-3H6.857V1.714h13.714z"/></svg>
-            Twitch
+
+          <div class="gicon-card gicon-float-5">
+            <svg class="gicon" viewBox="0 0 48 48" fill="none">
+              <!-- Chat bubble -->
+              <path d="M8 10h32a2 2 0 0 1 2 2v18a2 2 0 0 1-2 2H16l-8 6V12a2 2 0 0 1 2-2z" stroke="currentColor" stroke-width="2.5" stroke-linejoin="round"/>
+              <line x1="16" y1="20" x2="32" y2="20" stroke="currentColor" stroke-width="2" stroke-linecap="round" opacity="0.6"/>
+              <line x1="16" y1="26" x2="26" y2="26" stroke="currentColor" stroke-width="2" stroke-linecap="round" opacity="0.4"/>
+            </svg>
+            <span class="gicon-label">Chat</span>
           </div>
+
+          <div class="gicon-card gicon-float-6">
+            <svg class="gicon" viewBox="0 0 48 48" fill="none">
+              <!-- Crosshair / aim -->
+              <circle cx="24" cy="24" r="16" stroke="currentColor" stroke-width="2.5"/>
+              <circle cx="24" cy="24" r="4" fill="currentColor" opacity="0.25"/>
+              <circle cx="24" cy="24" r="4" stroke="currentColor" stroke-width="2"/>
+              <line x1="24" y1="4" x2="24" y2="12" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"/>
+              <line x1="24" y1="36" x2="24" y2="44" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"/>
+              <line x1="4" y1="24" x2="12" y2="24" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"/>
+              <line x1="36" y1="24" x2="44" y2="24" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"/>
+            </svg>
+            <span class="gicon-label">Aim</span>
+          </div>
+
+          <div class="gicon-card gicon-card--accent gicon-float-7">
+            <svg class="gicon" viewBox="0 0 48 48" fill="none">
+              <!-- Shield / team -->
+              <path d="M24 4l14 5v12c0 9-6 16-14 19C10 37 4 30 4 21V9l20-5z" stroke="currentColor" stroke-width="2.5" stroke-linejoin="round" fill="currentColor" opacity="0.1"/>
+              <path d="M24 4l14 5v12c0 9-6 16-14 19C10 37 4 30 4 21V9l20-5z" stroke="currentColor" stroke-width="2.5" stroke-linejoin="round"/>
+              <path d="M16 24l6 6 10-12" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/>
+            </svg>
+            <span class="gicon-label">Defend</span>
+          </div>
+
+        </div>
+
+        <!-- Floating live badge -->
+        <div class="hero-live-badge">
+          <span class="live-dot"></span>
+          <span>2.4k playing now</span>
         </div>
       </div>
     </div>
@@ -119,36 +222,6 @@
     <div class="hero-scroll-hint reveal reveal--delay-5">
       <div class="scroll-line"></div>
       <span>scroll</span>
-    </div>
-
-    <!-- Floating UI card mockup -->
-    <div class="hero-card-float reveal reveal--delay-3">
-      <div class="card-mock">
-        <div class="card-mock-header">
-          <div class="avatar-row">
-            <div class="avatar av1"></div>
-            <div class="avatar av2"></div>
-            <div class="avatar av3"></div>
-            <span class="av-count">+14 online</span>
-          </div>
-          <span class="live-badge">● LIVE</span>
-        </div>
-        <div class="card-mock-body">
-          <div class="msg-row">
-            <div class="msg-bubble">gg ez no re 🔥</div>
-          </div>
-          <div class="msg-row msg-row--alt">
-            <div class="msg-bubble msg-bubble--alt">clutched it let's gooo</div>
-          </div>
-          <div class="msg-row">
-            <div class="msg-bubble">squad loaded 👾</div>
-          </div>
-        </div>
-        <div class="card-mock-footer">
-          <div class="stat-chip">🎮 2.4k playing</div>
-          <div class="stat-chip">💬 847 chatting</div>
-        </div>
-      </div>
     </div>
   </section>
 
@@ -161,8 +234,9 @@
         <p class="section-desc">No more context switching. SquadUp is the single hub that unifies how gamers communicate, play, stream, and grow — built with the same depth as the apps it replaces.</p>
       </div>
 
+      <!-- Equal-height masonry-style grid: 3 cols, rows auto-sized uniformly -->
       <div class="features-grid">
-        <div class="feature-card feature-card--large reveal">
+        <div class="feature-card reveal">
           <div class="feature-icon">
             <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg>
           </div>
@@ -176,7 +250,8 @@
             <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M15 10l4.553-2.069A1 1 0 0 1 21 8.87v6.26a1 1 0 0 1-1.447.9L15 14M3 8a2 2 0 0 1 2-2h8a2 2 0 0 1 2 2v8a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8z"/></svg>
           </div>
           <h3 class="feature-title">Live Streaming</h3>
-          <p class="feature-body">Stream directly to your squad. Zero setup, full quality — like Twitch, but native.</p>
+          <p class="feature-body">Stream directly to your squad — zero setup, full quality. Like Twitch but native, embedded inside the same place you chat and connect.</p>
+          <div class="feature-tag">Twitch-level streaming</div>
         </div>
 
         <div class="feature-card reveal reveal--delay-2">
@@ -184,7 +259,8 @@
             <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M4 16l4.586-4.586a2 2 0 0 1 2.828 0L16 16m-2-2l1.586-1.586a2 2 0 0 1 2.828 0L20 14m-6-6h.01M6 20h12a2 2 0 0 0 2-2V6a2 2 0 0 0-2-2H6a2 2 0 0 0-2 2v12a2 2 0 0 0 2 2z"/></svg>
           </div>
           <h3 class="feature-title">Story Feed</h3>
-          <p class="feature-body">Post clips, highlights, and stories to your gaming profile. Your moment, your audience.</p>
+          <p class="feature-body">Post clips, highlights, and stories to your gaming profile. Your moment, your audience — built for how gamers actually share their plays.</p>
+          <div class="feature-tag">Instagram for gamers</div>
         </div>
 
         <div class="feature-card reveal reveal--delay-1">
@@ -192,16 +268,26 @@
             <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><circle cx="12" cy="12" r="10"/><path d="M12 8v4l3 3"/></svg>
           </div>
           <h3 class="feature-title">Squad Scheduler</h3>
-          <p class="feature-body">Plan sessions, track time zones, send reminders — your squad's always on time.</p>
+          <p class="feature-body">Plan sessions, track time zones, and send reminders so your squad's always on time. Never miss a session across regions again.</p>
+          <div class="feature-tag">Cross-timezone sync</div>
         </div>
 
-        <div class="feature-card feature-card--large feature-card--dark reveal reveal--delay-2">
+        <div class="feature-card feature-card--dark reveal reveal--delay-2">
           <div class="feature-icon feature-icon--light">
             <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87M16 3.13a4 4 0 0 1 0 7.75"/></svg>
           </div>
           <h3 class="feature-title feature-title--light">Squad Discovery</h3>
-          <p class="feature-body feature-body--light">Find players by game, skill level, region, and playstyle. Build squads or join communities — no cold invites, just real matches.</p>
+          <p class="feature-body feature-body--light">Find players by game, skill level, region, and playstyle. Build squads or join communities — no cold invites, just real matches with real players.</p>
           <div class="feature-tag feature-tag--light">Match with real players</div>
+        </div>
+
+        <div class="feature-card reveal reveal--delay-3">
+          <div class="feature-icon">
+            <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><polyline points="22 12 18 12 15 21 9 3 6 12 2 12"/></svg>
+          </div>
+          <h3 class="feature-title">Stats & Rankings</h3>
+          <p class="feature-body">Track your performance across every game in one place. See your rank history, compare with your squad, and celebrate every milestone.</p>
+          <div class="feature-tag">Live leaderboards</div>
         </div>
       </div>
     </div>
@@ -243,7 +329,6 @@
 
         <div class="platform-right reveal reveal--delay-2">
           <div class="platform-visual">
-            <!-- Animated app mockup -->
             <div class="app-mockup">
               <div class="app-sidebar">
                 <div class="sidebar-avatar main-av"></div>
@@ -298,7 +383,6 @@
               </div>
             </div>
 
-            <!-- Floating stats -->
             <div class="float-stat float-stat--1">
               <div class="fstat-icon">🎯</div>
               <div class="fstat-text">
@@ -319,7 +403,7 @@
     </div>
   </section>
 
-  <!-- ═══════════════════ SECTION 3 — COMMUNITY / CONNECT ═══════════════════ -->
+  <!-- ═══════════════════ SECTION 3 — COMMUNITY ═══════════════════ -->
   <section class="section community-section" id="community">
     <div class="section-inner">
       <div class="community-header reveal">
@@ -411,14 +495,16 @@
     </div>
   </section>
 
-  <!-- ═══════════════════ FOOTER ═══════════════════ -->
+  <!-- ═══════════════════ FOOTER (compact) ═══════════════════ -->
   <footer class="footer">
     <div class="footer-inner">
-      <div class="footer-top">
+      <div class="footer-compact">
+
+        <!-- Brand -->
         <div class="footer-brand">
-          <a href="#" class="nav-logo footer-logo">
+          <a href="/" class="nav-logo footer-logo">
             <div class="logo-mark">
-              <svg width="28" height="28" viewBox="0 0 28 28" fill="none">
+              <svg width="24" height="24" viewBox="0 0 28 28" fill="none">
                 <rect width="28" height="28" rx="8" fill="#1a1a1a"/>
                 <path d="M7 14C7 10.134 10.134 7 14 7C17.866 7 21 10.134 21 14" stroke="#f0ebe0" stroke-width="2.2" stroke-linecap="round"/>
                 <circle cx="14" cy="17" r="3" fill="#f0ebe0"/>
@@ -429,52 +515,36 @@
             <span class="logo-text">SquadUp</span>
           </a>
           <p class="footer-tagline">Your squad. One place.</p>
+        </div>
 
+        <!-- About Us (only link group) -->
+        <div class="footer-about">
+          <p class="footer-about-text">Built by gamers who were tired of juggling five apps to play with friends. SquadUp is the platform we always wanted to exist.</p>
+          <a href="/story" class="btn-about-story">
+            Read our story
+            <svg width="13" height="13" viewBox="0 0 14 14" fill="none">
+              <path d="M2 7H12M12 7L8 3M12 7L8 11" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/>
+            </svg>
+          </a>
+        </div>
+
+        <!-- Socials -->
+        <div class="footer-socials-col">
+          <p class="footer-socials-label">Find us</p>
           <div class="footer-socials">
-            <!-- Instagram -->
             <a href="#" class="social-icon" aria-label="Instagram">
-              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r="1" fill="currentColor" stroke="none"/></svg>
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r="1" fill="currentColor" stroke="none"/></svg>
             </a>
-            <!-- Discord -->
             <a href="#" class="social-icon" aria-label="Discord">
-              <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M20.317 4.37a19.791 19.791 0 0 0-4.885-1.515.074.074 0 0 0-.079.037c-.21.375-.444.864-.608 1.25a18.27 18.27 0 0 0-5.487 0 12.64 12.64 0 0 0-.617-1.25.077.077 0 0 0-.079-.037A19.736 19.736 0 0 0 3.677 4.37a.07.07 0 0 0-.032.027C.533 9.046-.32 13.58.099 18.057a.082.082 0 0 0 .031.057 19.9 19.9 0 0 0 5.993 3.03.078.078 0 0 0 .084-.028c.462-.63.874-1.295 1.226-1.994a.076.076 0 0 0-.041-.106 13.107 13.107 0 0 1-1.872-.892.077.077 0 0 1-.008-.128 10.2 10.2 0 0 0 .372-.292.074.074 0 0 1 .077-.01c3.928 1.793 8.18 1.793 12.062 0a.074.074 0 0 1 .078.01c.12.098.246.198.373.292a.077.077 0 0 1-.006.127 12.299 12.299 0 0 1-1.873.892.077.077 0 0 0-.041.107c.36.698.772 1.362 1.225 1.993a.076.076 0 0 0 .084.028 19.839 19.839 0 0 0 6.002-3.03.077.077 0 0 0 .032-.054c.5-5.177-.838-9.674-3.549-13.66a.061.061 0 0 0-.031-.03z"/></svg>
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M20.317 4.37a19.791 19.791 0 0 0-4.885-1.515.074.074 0 0 0-.079.037c-.21.375-.444.864-.608 1.25a18.27 18.27 0 0 0-5.487 0 12.64 12.64 0 0 0-.617-1.25.077.077 0 0 0-.079-.037A19.736 19.736 0 0 0 3.677 4.37a.07.07 0 0 0-.032.027C.533 9.046-.32 13.58.099 18.057a.082.082 0 0 0 .031.057 19.9 19.9 0 0 0 5.993 3.03.078.078 0 0 0 .084-.028c.462-.63.874-1.295 1.226-1.994a.076.076 0 0 0-.041-.106 13.107 13.107 0 0 1-1.872-.892.077.077 0 0 1-.008-.128 10.2 10.2 0 0 0 .372-.292.074.074 0 0 1 .077-.01c3.928 1.793 8.18 1.793 12.062 0a.074.074 0 0 1 .078.01c.12.098.246.198.373.292a.077.077 0 0 1-.006.127 12.299 12.299 0 0 1-1.873.892.077.077 0 0 0-.041.107c.36.698.772 1.362 1.225 1.993a.076.076 0 0 0 .084.028 19.839 19.839 0 0 0 6.002-3.03.077.077 0 0 0 .032-.054c.5-5.177-.838-9.674-3.549-13.66a.061.061 0 0 0-.031-.03z"/></svg>
             </a>
-            <!-- Telegram -->
-            <a href="#" class="social-icon" aria-label="Telegram">
-              <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M11.944 0A12 12 0 0 0 0 12a12 12 0 0 0 12 12 12 12 0 0 0 12-12A12 12 0 0 0 12 0a12 12 0 0 0-.056 0zm4.962 7.224c.1-.002.321.023.465.14a.506.506 0 0 1 .171.325c.016.093.036.306.02.472-.18 1.898-.96 6.502-1.36 8.627-.168.9-.499 1.201-.82 1.23-.696.065-1.225-.46-1.9-.902-1.056-.693-1.653-1.124-2.678-1.8-1.185-.78-.417-1.21.258-1.91.177-.184 3.247-2.977 3.307-3.23.007-.032.014-.15-.056-.212s-.174-.041-.249-.024c-.106.024-1.793 1.14-5.061 3.345-.48.33-.913.49-1.302.48-.428-.008-1.252-.241-1.865-.44-.752-.245-1.349-.374-1.297-.789.027-.216.325-.437.893-.663 3.498-1.524 5.83-2.529 6.998-3.014 3.332-1.386 4.025-1.627 4.476-1.635z"/></svg>
-            </a>
-            <!-- Twitch -->
-            <a href="#" class="social-icon" aria-label="Twitch">
-              <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M11.571 4.714h1.715v5.143H11.57zm4.715 0H18v5.143h-1.714zM6 0L1.714 4.286v15.428h5.143V24l4.286-4.286h3.428L22.286 12V0zm14.571 11.143l-3.428 3.428h-3.429l-3 3v-3H6.857V1.714h13.714z"/></svg>
-            </a>
-            <!-- Twitter/X -->
             <a href="#" class="social-icon" aria-label="Twitter">
-              <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/></svg>
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/></svg>
+            </a>
+            <a href="#" class="social-icon" aria-label="Twitch">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M11.571 4.714h1.715v5.143H11.57zm4.715 0H18v5.143h-1.714zM6 0L1.714 4.286v15.428h5.143V24l4.286-4.286h3.428L22.286 12V0zm14.571 11.143l-3.428 3.428h-3.429l-3 3v-3H6.857V1.714h13.714z"/></svg>
             </a>
           </div>
-        </div>
-
-        <div class="footer-links-group">
-          <h4 class="footer-group-title">Product</h4>
-          <a href="#features" class="footer-link">Features</a>
-          <a href="#platform" class="footer-link">Platform</a>
-          <a href="#community" class="footer-link">Community</a>
-          <a href="#" class="footer-link">Changelog</a>
-        </div>
-
-        <div class="footer-links-group">
-          <h4 class="footer-group-title">Company</h4>
-          <a href="#" class="footer-link">About us</a>
-          <a href="#" class="footer-link">Blog</a>
-          <a href="#" class="footer-link">Careers</a>
-          <a href="#" class="footer-link">Contact</a>
-        </div>
-
-        <div class="footer-links-group">
-          <h4 class="footer-group-title">Legal</h4>
-          <a href="#" class="footer-link">Terms & Conditions</a>
-          <a href="#" class="footer-link">Privacy Policy</a>
-          <a href="#" class="footer-link">Cookie Policy</a>
         </div>
       </div>
 
