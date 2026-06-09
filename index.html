@@ -17,7 +17,7 @@
       <a href="/" class="nav-logo">
         <div class="logo-mark">
           <svg width="28" height="28" viewBox="0 0 28 28" fill="none" xmlns="http://www.w3.org/2000/svg">
-            <rect width="28" height="28" rx="8" fill="#1a1a1a"/>
+            <rect width="28" height="28" rx="0" fill="#1a1a1a"/>
             <path d="M7 14C7 10.134 10.134 7 14 7C17.866 7 21 10.134 21 14" stroke="#f0ebe0" stroke-width="2.2" stroke-linecap="round"/>
             <circle cx="14" cy="17" r="3" fill="#f0ebe0"/>
             <circle cx="9" cy="17" r="1.5" fill="#c8b99a"/>
@@ -42,17 +42,18 @@
         </a>
       </div>
 
-      <button class="nav-hamburger" id="navHamburger" aria-label="Menu">
-        <span></span><span></span><span></span>
-      </button>
-    </div>
-
-    <!-- Mobile menu -->
-    <div class="mobile-menu" id="mobileMenu">
-      <a href="#features" class="mobile-link">Features</a>
-      <a href="#platform" class="mobile-link">Platform</a>
-      <a href="#community" class="mobile-link">Community</a>
-      <a href="#connect" class="btn-connect mobile-btn">Connect</a>
+      <div class="nav-hamburger-wrap">
+        <button class="nav-hamburger" id="navHamburger" aria-label="Menu">
+          <span></span><span></span><span></span>
+        </button>
+        <!-- Mobile dropdown — anchored under hamburger -->
+        <div class="mobile-menu" id="mobileMenu">
+          <a href="#features" class="mobile-link">Features</a>
+          <a href="#platform" class="mobile-link">Platform</a>
+          <a href="#community" class="mobile-link">Community</a>
+          <a href="#connect" class="mobile-link mobile-link--cta">Connect →</a>
+        </div>
+      </div>
     </div>
   </nav>
 
@@ -559,7 +560,7 @@
           <a href="/" class="nav-logo footer-logo">
             <div class="logo-mark">
               <svg width="24" height="24" viewBox="0 0 28 28" fill="none">
-                <rect width="28" height="28" rx="8" fill="#1a1a1a"/>
+                <rect width="28" height="28" rx="0" fill="#1a1a1a"/>
                 <path d="M7 14C7 10.134 10.134 7 14 7C17.866 7 21 10.134 21 14" stroke="#f0ebe0" stroke-width="2.2" stroke-linecap="round"/>
                 <circle cx="14" cy="17" r="3" fill="#f0ebe0"/>
                 <circle cx="9" cy="17" r="1.5" fill="#c8b99a"/>
