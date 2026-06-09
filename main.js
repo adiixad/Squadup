@@ -17,7 +17,37 @@ document.addEventListener('DOMContentLoaded', () => {
   initCTAForm();
   initSmoothScroll();
   initCursorTrail();
+  initRouter();
 });
+
+
+// ══════════════════════════════════════════
+// ROUTER — /story navigation
+// ══════════════════════════════════════════
+function initRouter() {
+  // Handle "Read our story" links
+  document.querySelectorAll('a[href="/story"]').forEach(link => {
+    link.addEventListener('click', (e) => {
+      e.preventDefault();
+      window.location.href = 'story.html';
+    });
+  });
+
+  // Handle back-to-home from story page
+  document.querySelectorAll('a[href="/"]').forEach(link => {
+    link.addEventListener('click', (e) => {
+      e.preventDefault();
+      window.location.href = 'index.html';
+    });
+  });
+
+  document.querySelectorAll('a[href="/#connect"]').forEach(link => {
+    link.addEventListener('click', (e) => {
+      e.preventDefault();
+      window.location.href = 'index.html#connect';
+    });
+  });
+}
 
 
 // ══════════════════════════════════════════
