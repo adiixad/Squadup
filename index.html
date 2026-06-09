@@ -199,7 +199,7 @@
             <span class="gicon-label">Aim</span>
           </div>
 
-          <div class="gicon-card gicon-card--accent gicon-float-7">
+          <div class="gicon-card gicon-float-7">
             <svg class="gicon" viewBox="0 0 48 48" fill="none">
               <!-- Shield / team -->
               <path d="M24 4l14 5v12c0 9-6 16-14 19C10 37 4 30 4 21V9l20-5z" stroke="currentColor" stroke-width="2.5" stroke-linejoin="round" fill="currentColor" opacity="0.1"/>
@@ -209,13 +209,19 @@
             <span class="gicon-label">Defend</span>
           </div>
 
+          <div class="gicon-card gicon-float-1">
+            <svg class="gicon" viewBox="0 0 48 48" fill="none">
+              <!-- Map / strategy -->
+              <path d="M6 10l12-4 12 4 12-4v32l-12 4-12-4-12 4V10z" stroke="currentColor" stroke-width="2.5" stroke-linejoin="round"/>
+              <line x1="18" y1="6" x2="18" y2="38" stroke="currentColor" stroke-width="2" stroke-linecap="round" opacity="0.5"/>
+              <line x1="30" y1="10" x2="30" y2="42" stroke="currentColor" stroke-width="2" stroke-linecap="round" opacity="0.5"/>
+            </svg>
+            <span class="gicon-label">Strategy</span>
+          </div>
+
         </div>
 
-        <!-- Floating live badge -->
-        <div class="hero-live-badge">
-          <span class="live-dot"></span>
-          <span>2.4k playing now</span>
-        </div>
+
       </div>
     </div>
 
@@ -272,13 +278,13 @@
           <div class="feature-tag">Cross-timezone sync</div>
         </div>
 
-        <div class="feature-card feature-card--dark reveal reveal--delay-2">
-          <div class="feature-icon feature-icon--light">
+        <div class="feature-card reveal reveal--delay-2">
+          <div class="feature-icon">
             <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87M16 3.13a4 4 0 0 1 0 7.75"/></svg>
           </div>
-          <h3 class="feature-title feature-title--light">Squad Discovery</h3>
-          <p class="feature-body feature-body--light">Find players by game, skill level, region, and playstyle. Build squads or join communities — no cold invites, just real matches with real players.</p>
-          <div class="feature-tag feature-tag--light">Match with real players</div>
+          <h3 class="feature-title">Squad Discovery</h3>
+          <p class="feature-body">Find players by game, skill level, region, and playstyle. Build squads or join communities — no cold invites, just real matches with real players.</p>
+          <div class="feature-tag">Match with real players</div>
         </div>
 
         <div class="feature-card reveal reveal--delay-3">
@@ -329,72 +335,120 @@
 
         <div class="platform-right reveal reveal--delay-2">
           <div class="platform-visual">
-            <div class="app-mockup">
-              <div class="app-sidebar">
-                <div class="sidebar-avatar main-av"></div>
-                <div class="sidebar-divider"></div>
-                <div class="sidebar-icon active">
-                  <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="3" width="7" height="7"/><rect x="14" y="3" width="7" height="7"/><rect x="14" y="14" width="7" height="7"/><rect x="3" y="14" width="7" height="7"/></svg>
+            <!-- New creative: Squad Activity Dashboard -->
+            <div class="squad-dashboard">
+              <!-- Header -->
+              <div class="dash-header">
+                <div class="dash-title-row">
+                  <div class="dash-dot active-dot"></div>
+                  <span class="dash-title">Squad: NightOwls</span>
+                  <span class="dash-badge">6 online</span>
                 </div>
-                <div class="sidebar-icon">
-                  <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg>
+                <div class="dash-game-tag">Valorant · Immortal Lobby</div>
+              </div>
+
+              <!-- Member row -->
+              <div class="dash-members">
+                <div class="dash-member">
+                  <div class="dmem-av dmem-av--1">
+                    <div class="dmem-status online"></div>
+                  </div>
+                  <span class="dmem-name">xNoScope</span>
+                  <span class="dmem-rank">Immortal</span>
                 </div>
-                <div class="sidebar-icon">
-                  <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M15 10l4.553-2.069A1 1 0 0 1 21 8.87v6.26a1 1 0 0 1-1.447.9L15 14M3 8a2 2 0 0 1 2-2h8a2 2 0 0 1 2 2v8a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8z"/></svg>
+                <div class="dash-member">
+                  <div class="dmem-av dmem-av--2">
+                    <div class="dmem-status online"></div>
+                  </div>
+                  <span class="dmem-name">phantom_g</span>
+                  <span class="dmem-rank">Diamond</span>
                 </div>
-                <div class="sidebar-icon">
-                  <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87M16 3.13a4 4 0 0 1 0 7.75"/></svg>
+                <div class="dash-member">
+                  <div class="dmem-av dmem-av--3">
+                    <div class="dmem-status away"></div>
+                  </div>
+                  <span class="dmem-name">raidzen</span>
+                  <span class="dmem-rank">Platinum</span>
+                </div>
+                <div class="dash-member">
+                  <div class="dmem-av dmem-av--4">
+                    <div class="dmem-status online"></div>
+                  </div>
+                  <span class="dmem-name">Zerova</span>
+                  <span class="dmem-rank">Diamond</span>
                 </div>
               </div>
-              <div class="app-main">
-                <div class="app-topbar">
-                  <span class="app-channel"># valorant-ranked</span>
-                  <span class="app-live-dot">● 6 online</span>
+
+              <!-- Stats row -->
+              <div class="dash-stats">
+                <div class="dash-stat-item">
+                  <span class="dstat-val" id="animWinRate">68%</span>
+                  <span class="dstat-label">Win Rate</span>
                 </div>
-                <div class="app-messages" id="appMessages">
-                  <div class="app-msg">
-                    <div class="app-msg-av"></div>
-                    <div class="app-msg-content">
-                      <span class="app-msg-name">xNoScope99</span>
-                      <span class="app-msg-text">who's ready for ranked?</span>
-                    </div>
-                  </div>
-                  <div class="app-msg">
-                    <div class="app-msg-av av-b"></div>
-                    <div class="app-msg-content">
-                      <span class="app-msg-name">phantom_g</span>
-                      <span class="app-msg-text">in 10 mins, loading up 🎮</span>
-                    </div>
-                  </div>
-                  <div class="app-msg app-msg--new" id="newMsg" style="opacity:0">
-                    <div class="app-msg-av av-c"></div>
-                    <div class="app-msg-content">
-                      <span class="app-msg-name">raidzen</span>
-                      <span class="app-msg-text">joining now, let's clutch 🔥</span>
-                    </div>
-                  </div>
+                <div class="dash-stat-sep"></div>
+                <div class="dash-stat-item">
+                  <span class="dstat-val">1.4</span>
+                  <span class="dstat-label">KD Ratio</span>
                 </div>
-                <div class="app-input-bar">
-                  <div class="app-input-fake">Message squad...</div>
-                  <div class="app-input-icon">
-                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="22" y1="2" x2="11" y2="13"/><polygon points="22 2 15 22 11 13 2 9 22 2"/></svg>
-                  </div>
+                <div class="dash-stat-sep"></div>
+                <div class="dash-stat-item">
+                  <span class="dstat-val">32</span>
+                  <span class="dstat-label">Sessions</span>
                 </div>
+              </div>
+
+              <!-- Activity chart -->
+              <div class="dash-chart-label">
+                <span>Activity this week</span>
+                <span class="dash-chart-up">↑ 18%</span>
+              </div>
+              <div class="dash-chart">
+                <div class="dchart-bar" style="height:45%" data-day="Mon"></div>
+                <div class="dchart-bar" style="height:62%" data-day="Tue"></div>
+                <div class="dchart-bar" style="height:38%" data-day="Wed"></div>
+                <div class="dchart-bar" style="height:78%" data-day="Thu"></div>
+                <div class="dchart-bar dchart-bar--active" style="height:91%" data-day="Fri"></div>
+                <div class="dchart-bar" style="height:55%" data-day="Sat"></div>
+                <div class="dchart-bar" style="height:70%" data-day="Sun"></div>
+              </div>
+
+              <!-- Recent activity feed -->
+              <div class="dash-feed">
+                <div class="dfeed-item dfeed-item--win" id="dashFeed1">
+                  <span class="dfeed-icon">🏆</span>
+                  <span class="dfeed-text">Squad won 3 ranked matches in a row</span>
+                  <span class="dfeed-time">2m ago</span>
+                </div>
+                <div class="dfeed-item" id="dashFeed2">
+                  <span class="dfeed-icon">🎯</span>
+                  <span class="dfeed-text">xNoScope hit a new seasonal high rank</span>
+                  <span class="dfeed-time">14m ago</span>
+                </div>
+              </div>
+
+              <!-- Bottom action -->
+              <div class="dash-action">
+                <div class="dash-action-left">
+                  <div class="dash-action-icon">⚡</div>
+                  <span>Ready to queue</span>
+                </div>
+                <button class="dash-queue-btn">Start Match</button>
               </div>
             </div>
 
-            <div class="float-stat float-stat--1">
-              <div class="fstat-icon">🎯</div>
-              <div class="fstat-text">
-                <span class="fstat-num">2.4k</span>
-                <span class="fstat-label">Active now</span>
+            <!-- Floating decorative cards -->
+            <div class="platform-float-badge platform-float-badge--1">
+              <div class="pfb-icon">🔴</div>
+              <div class="pfb-text">
+                <span class="pfb-val">LIVE</span>
+                <span class="pfb-label">xNoScope streaming</span>
               </div>
             </div>
-            <div class="float-stat float-stat--2">
-              <div class="fstat-icon">⚡</div>
-              <div class="fstat-text">
-                <span class="fstat-num">32ms</span>
-                <span class="fstat-label">Avg latency</span>
+            <div class="platform-float-badge platform-float-badge--2">
+              <div class="pfb-icon">⚡</div>
+              <div class="pfb-text">
+                <span class="pfb-val">28ms</span>
+                <span class="pfb-label">Latency</span>
               </div>
             </div>
           </div>
