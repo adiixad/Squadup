@@ -171,54 +171,46 @@ function initCounterObserver() {
 
 
 // ══════════════════════════════════════════
-// CHAT LOOP — live chat demo animation
+// DASHBOARD FEED — animated feed items
 // ══════════════════════════════════════════
 function initChatLoop() {
-  const msgEl = document.getElementById('newMsg');
-  if (!msgEl) return;
+  const feed1 = document.getElementById('dashFeed1');
+  const feed2 = document.getElementById('dashFeed2');
+  if (!feed1 && !feed2) return;
 
-  // Fake message rotation pool
-  const messages = [
-    { name: 'raidzen', text: 'joining now, let\'s clutch 🔥', avClass: 'av-c' },
-    { name: 'frostbyte_', text: 'gg last match 😤 rematch?', avClass: 'av-b' },
-    { name: 'Zerova', text: 'squad full — ready when you are', avClass: 'av-c' },
-    { name: 'nxght.exe', text: '1v1 me for warmup lmao', avClass: 'av-b' },
-    { name: 'arclight99', text: 'loading into lobby 🎮', avClass: 'av-c' },
+  // Animate feed items in on scroll
+  const feedMessages = [
+    { icon: '🏆', text: 'Squad won 3 ranked matches in a row', time: '2m ago', win: true },
+    { icon: '⚡', text: 'raidzen just ranked up to Platinum', time: '8m ago', win: true },
+    { icon: '🎯', text: 'xNoScope hit a new seasonal high rank', time: '14m ago', win: false },
+    { icon: '🎮', text: 'Zerova joined the squad lobby', time: '22m ago', win: false },
+    { icon: '🔥', text: 'Squad is on a 5-game win streak!', time: '31m ago', win: true },
   ];
 
   let idx = 0;
-
-  const cycleMessage = () => {
-    const msg = messages[idx % messages.length];
+  const cycleFeed = () => {
+    const msg = feedMessages[idx % feedMessages.length];
     idx++;
-
-    // Fade out
-    msgEl.style.opacity = '0';
-    msgEl.style.transform = 'translateY(8px)';
-    msgEl.style.transition = 'opacity 0.35s ease, transform 0.35s ease';
-
+    if (!feed1) return;
+    feed1.style.opacity = '0';
+    feed1.style.transform = 'translateY(-6px)';
+    feed1.style.transition = 'opacity 0.3s ease, transform 0.3s ease';
     setTimeout(() => {
-      // Update content
-      const avEl   = msgEl.querySelector('.app-msg-av');
-      const nameEl = msgEl.querySelector('.app-msg-name');
-      const textEl = msgEl.querySelector('.app-msg-text');
-
-      avEl.className   = `app-msg-av ${msg.avClass}`;
-      nameEl.textContent = msg.name;
-      textEl.textContent = msg.text;
-
-      // Fade in
-      msgEl.style.opacity = '1';
-      msgEl.style.transform = 'translateY(0)';
-    }, 380);
+      const icon = feed1.querySelector('.dfeed-icon');
+      const text = feed1.querySelector('.dfeed-text');
+      const time = feed1.querySelector('.dfeed-time');
+      if (icon) icon.textContent = msg.icon;
+      if (text) text.textContent = msg.text;
+      if (time) time.textContent = msg.time;
+      feed1.classList.toggle('dfeed-item--win', msg.win);
+      feed1.style.opacity = '1';
+      feed1.style.transform = 'translateY(0)';
+    }, 320);
   };
 
-  // Show first message after a delay
   setTimeout(() => {
-    msgEl.style.transition = 'opacity 0.5s ease';
-    msgEl.style.opacity = '1';
-    setInterval(cycleMessage, 3000);
-  }, 1800);
+    setInterval(cycleFeed, 3500);
+  }, 2000);
 }
 
 
