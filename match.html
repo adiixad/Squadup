@@ -1,0 +1,1011 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>SquadUp — Find Your Match</title>
+  <link rel="stylesheet" href="style.css" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@300;400;500;600;700&family=Space+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet" />
+  <style>
+    /* ── MATCH PAGE STYLES ── */
+    .match-page {
+      min-height: 100vh;
+      background: var(--off-white);
+      padding-top: var(--nav-h);
+    }
+
+    .match-hero {
+      background: var(--ink);
+      padding: 72px 0 64px;
+      position: relative;
+      overflow: hidden;
+    }
+    .match-hero::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background:
+        radial-gradient(ellipse 60% 80% at 80% 50%, rgba(200,185,154,0.07) 0%, transparent 70%),
+        radial-gradient(ellipse 40% 60% at 20% 50%, rgba(200,185,154,0.05) 0%, transparent 60%);
+    }
+    /* Animated grid lines */
+    .match-hero-grid {
+      position: absolute;
+      inset: 0;
+      background-image:
+        linear-gradient(rgba(240,235,224,0.04) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(240,235,224,0.04) 1px, transparent 1px);
+      background-size: 48px 48px;
+    }
+
+    .match-hero-inner {
+      max-width: 1240px;
+      margin: 0 auto;
+      padding: 0 48px;
+      position: relative;
+      z-index: 1;
+    }
+    .match-back {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      font-size: 13px;
+      font-weight: 600;
+      color: var(--cream);
+      opacity: 0.5;
+      text-decoration: none;
+      margin-bottom: 32px;
+      transition: opacity 0.2s, gap 0.2s;
+    }
+    .match-back:hover { opacity: 1; gap: 4px; }
+    .match-back svg { transform: rotate(180deg); }
+
+    .match-eyebrow {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      font-size: 12px;
+      font-weight: 600;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: var(--muted-gold);
+      margin-bottom: 18px;
+    }
+    .match-eyebrow .blink-dot {
+      width: 8px;
+      height: 8px;
+      border-radius: 50%;
+      background: #4ade80;
+      box-shadow: 0 0 0 0 rgba(74,222,128,0.4);
+      animation: pulse 2s ease-out infinite;
+    }
+
+    .match-hero-title {
+      font-family: var(--font-display);
+      font-size: clamp(36px, 5vw, 60px);
+      font-weight: 700;
+      color: var(--cream);
+      line-height: 1.08;
+      letter-spacing: -0.03em;
+      margin-bottom: 16px;
+    }
+    .match-hero-title em {
+      font-style: normal;
+      color: var(--muted-gold);
+    }
+    .match-hero-sub {
+      font-size: 16px;
+      font-weight: 400;
+      color: var(--cream);
+      opacity: 0.55;
+      max-width: 500px;
+      line-height: 1.65;
+    }
+
+    /* ── SQUAD INFO STRIP ── */
+    .squad-strip {
+      background: rgba(240,235,224,0.06);
+      border-top: 1px solid rgba(240,235,224,0.1);
+      border-bottom: 1px solid rgba(240,235,224,0.1);
+      margin-top: 48px;
+      padding: 20px 0;
+    }
+    .squad-strip-inner {
+      max-width: 1240px;
+      margin: 0 auto;
+      padding: 0 48px;
+      display: flex;
+      align-items: center;
+      gap: 40px;
+      flex-wrap: wrap;
+    }
+    .squad-strip-item {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      color: var(--cream);
+    }
+    .squad-strip-icon {
+      width: 32px;
+      height: 32px;
+      background: rgba(240,235,224,0.08);
+      border: 1px solid rgba(240,235,224,0.12);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: var(--muted-gold);
+    }
+    .squad-strip-label {
+      font-size: 11px;
+      font-weight: 600;
+      color: var(--cream);
+      opacity: 0.4;
+      letter-spacing: 0.06em;
+      text-transform: uppercase;
+      display: block;
+    }
+    .squad-strip-val {
+      font-family: var(--font-display);
+      font-size: 14px;
+      font-weight: 700;
+      color: var(--cream);
+      display: block;
+    }
+    .squad-strip-div {
+      width: 1px;
+      height: 28px;
+      background: rgba(240,235,224,0.1);
+      flex-shrink: 0;
+    }
+
+    /* ── MAIN LAYOUT ── */
+    .match-body {
+      max-width: 1240px;
+      margin: 0 auto;
+      padding: 64px 48px 120px;
+      display: grid;
+      grid-template-columns: 1fr 380px;
+      gap: 48px;
+      align-items: start;
+    }
+
+    /* ── LEFT — MATCH RESULTS ── */
+    .match-results-header {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      margin-bottom: 28px;
+    }
+    .match-results-title {
+      font-family: var(--font-display);
+      font-size: 22px;
+      font-weight: 700;
+      color: var(--ink);
+      letter-spacing: -0.02em;
+    }
+    .match-results-count {
+      font-size: 12px;
+      font-weight: 700;
+      color: var(--muted-gold);
+      background: rgba(200,185,154,0.14);
+      border: 1px solid rgba(200,185,154,0.25);
+      padding: 5px 14px;
+      letter-spacing: 0.06em;
+      text-transform: uppercase;
+    }
+
+    .match-filters {
+      display: flex;
+      gap: 8px;
+      flex-wrap: wrap;
+      margin-bottom: 32px;
+    }
+    .mfilter {
+      display: inline-flex;
+      align-items: center;
+      gap: 7px;
+      padding: 8px 16px;
+      font-size: 12.5px;
+      font-weight: 600;
+      cursor: pointer;
+      border: 1px solid var(--warm-sand);
+      background: var(--off-white);
+      color: var(--charcoal);
+      border-radius: 0;
+      transition: background 0.2s, border-color 0.2s, color 0.2s;
+    }
+    .mfilter.active, .mfilter:hover {
+      background: var(--ink);
+      border-color: var(--ink);
+      color: var(--cream);
+    }
+    .mfilter-dot {
+      width: 7px;
+      height: 7px;
+      border-radius: 50%;
+      background: #4ade80;
+    }
+
+    .match-cards {
+      display: flex;
+      flex-direction: column;
+      gap: 16px;
+    }
+
+    .mcard {
+      background: var(--off-white);
+      border: 1px solid var(--warm-sand);
+      padding: 24px 26px;
+      display: grid;
+      grid-template-columns: auto 1fr auto;
+      align-items: center;
+      gap: 20px;
+      transition: transform 0.25s var(--ease-out), box-shadow 0.25s, border-color 0.25s;
+      cursor: pointer;
+    }
+    .mcard:hover {
+      transform: translateY(-3px);
+      box-shadow: 0 12px 36px rgba(26,26,26,0.1);
+      border-color: var(--muted-gold);
+    }
+    .mcard--top {
+      border-color: var(--muted-gold);
+      background: var(--beige-mid);
+    }
+
+    .mcard-avatar-group {
+      display: flex;
+      gap: -6px;
+    }
+    .mcard-av {
+      width: 46px;
+      height: 46px;
+      border-radius: 50%;
+      border: 2px solid var(--off-white);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-family: var(--font-display);
+      font-size: 14px;
+      font-weight: 700;
+      color: var(--cream);
+      flex-shrink: 0;
+    }
+    .mcard-av--1 { background: linear-gradient(135deg, #c8b99a, #9c8870); }
+    .mcard-av--2 { background: linear-gradient(135deg, #1a1a1a, #4a4a4a); }
+    .mcard-av--3 { background: linear-gradient(135deg, #8b7355, #6b5535); }
+    .mcard-av--4 { background: linear-gradient(135deg, #5a6878, #3a4858); }
+
+    .mcard-info {}
+    .mcard-name {
+      font-family: var(--font-display);
+      font-size: 16px;
+      font-weight: 700;
+      color: var(--ink);
+      letter-spacing: -0.015em;
+      margin-bottom: 6px;
+    }
+    .mcard-tags {
+      display: flex;
+      gap: 8px;
+      flex-wrap: wrap;
+    }
+    .mcard-tag {
+      font-size: 11px;
+      font-weight: 600;
+      color: var(--charcoal);
+      opacity: 0.55;
+      letter-spacing: 0.04em;
+    }
+    .mcard-tag::before {
+      content: '·';
+      margin-right: 5px;
+      opacity: 0.5;
+    }
+    .mcard-tag:first-child::before { content: ''; margin: 0; }
+
+    .mcard-right {
+      display: flex;
+      flex-direction: column;
+      align-items: flex-end;
+      gap: 10px;
+    }
+    .mcard-match-pct {
+      font-family: var(--font-display);
+      font-size: 26px;
+      font-weight: 700;
+      color: var(--ink);
+      line-height: 1;
+      letter-spacing: -0.03em;
+    }
+    .mcard-match-pct span {
+      font-size: 14px;
+      font-weight: 600;
+      color: var(--muted-gold);
+      margin-left: 2px;
+    }
+    .mcard-invite-btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 7px;
+      padding: 9px 18px;
+      font-size: 12.5px;
+      font-weight: 600;
+      background: var(--ink);
+      color: var(--cream);
+      border: none;
+      border-radius: 0;
+      cursor: pointer;
+      transition: background 0.2s, transform 0.2s;
+    }
+    .mcard-invite-btn:hover {
+      background: var(--charcoal);
+      transform: translateY(-1px);
+    }
+    .mcard--top .mcard-invite-btn {
+      background: var(--ink);
+      color: var(--cream);
+    }
+    .mcard--top .mcard-invite-btn:hover {
+      background: var(--charcoal);
+    }
+
+    .mcard-best-match-badge {
+      font-size: 10px;
+      font-weight: 700;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      color: var(--muted-gold);
+      background: rgba(200,185,154,0.15);
+      border: 1px solid rgba(200,185,154,0.3);
+      padding: 3px 10px;
+    }
+
+    /* ── RIGHT SIDEBAR ── */
+    .match-sidebar {
+      position: sticky;
+      top: calc(var(--nav-h) + 24px);
+      display: flex;
+      flex-direction: column;
+      gap: 20px;
+    }
+
+    .msidebar-card {
+      background: var(--off-white);
+      border: 1px solid var(--warm-sand);
+      padding: 26px;
+    }
+    .msidebar-title {
+      font-family: var(--font-display);
+      font-size: 15px;
+      font-weight: 700;
+      color: var(--ink);
+      letter-spacing: -0.015em;
+      margin-bottom: 20px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+    .msidebar-title-badge {
+      font-size: 10px;
+      font-weight: 700;
+      letter-spacing: 0.06em;
+      text-transform: uppercase;
+      color: #4ade80;
+      background: rgba(74,222,128,0.1);
+      border: 1px solid rgba(74,222,128,0.2);
+      padding: 3px 8px;
+    }
+
+    /* Your squad card */
+    .your-squad-members {
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+    }
+    .ysm-item {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+    }
+    .ysm-av {
+      width: 38px;
+      height: 38px;
+      border-radius: 50%;
+      position: relative;
+      flex-shrink: 0;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-family: var(--font-display);
+      font-weight: 700;
+      font-size: 13px;
+      color: var(--cream);
+    }
+    .ysm-av--1 { background: linear-gradient(135deg, #c8b99a, #9c8870); }
+    .ysm-av--2 { background: linear-gradient(135deg, #1a1a1a, #4a4a4a); }
+    .ysm-av--3 { background: linear-gradient(135deg, #8b7355, #6b5535); }
+    .ysm-av--4 { background: linear-gradient(135deg, #5a6878, #3a4858); }
+    .ysm-status {
+      position: absolute;
+      bottom: 0;
+      right: 0;
+      width: 10px;
+      height: 10px;
+      border-radius: 50%;
+      border: 2px solid var(--off-white);
+    }
+    .ysm-status--online { background: #4ade80; }
+    .ysm-status--away { background: #fbbf24; }
+    .ysm-name {
+      font-size: 13.5px;
+      font-weight: 700;
+      color: var(--ink);
+      flex: 1;
+    }
+    .ysm-rank {
+      font-size: 11.5px;
+      font-weight: 700;
+      color: var(--muted-gold);
+      letter-spacing: 0.04em;
+    }
+
+    /* Queue preferences */
+    .qpref-rows {
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+    }
+    .qpref-row {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 10px 14px;
+      background: var(--beige-mid);
+      border: 1px solid var(--warm-sand);
+    }
+    .qpref-label {
+      font-size: 12px;
+      font-weight: 600;
+      color: var(--charcoal);
+      opacity: 0.6;
+      letter-spacing: 0.03em;
+    }
+    .qpref-val {
+      font-size: 13px;
+      font-weight: 700;
+      color: var(--ink);
+    }
+
+    /* Queue button */
+    .queue-now-btn {
+      width: 100%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 10px;
+      padding: 16px 24px;
+      background: var(--ink);
+      color: var(--cream);
+      font-family: var(--font-display);
+      font-size: 15px;
+      font-weight: 700;
+      border: none;
+      border-radius: 0;
+      cursor: pointer;
+      letter-spacing: -0.01em;
+      transition: background 0.2s, transform 0.2s, box-shadow 0.2s;
+    }
+    .queue-now-btn:hover {
+      background: var(--charcoal);
+      transform: translateY(-2px);
+      box-shadow: 0 10px 32px rgba(26,26,26,0.2);
+    }
+    .queue-now-btn.searching {
+      background: rgba(74,222,128,0.15);
+      color: #16a34a;
+      border: 1.5px solid rgba(74,222,128,0.3);
+      cursor: default;
+      transform: none;
+      box-shadow: none;
+    }
+    .queue-pulse {
+      display: none;
+    }
+    .queue-now-btn.searching .queue-pulse {
+      display: flex;
+      width: 10px;
+      height: 10px;
+      border-radius: 50%;
+      background: #4ade80;
+      box-shadow: 0 0 0 0 rgba(74,222,128,0.5);
+      animation: pulse 1.5s ease-out infinite;
+    }
+    .queue-now-btn.searching .queue-arrow { display: none; }
+
+    /* Stats mini card */
+    .mstats-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 12px;
+    }
+    .mstat-box {
+      background: var(--beige-mid);
+      border: 1px solid var(--warm-sand);
+      padding: 14px 16px;
+      text-align: center;
+    }
+    .mstat-val {
+      font-family: var(--font-display);
+      font-size: 20px;
+      font-weight: 700;
+      color: var(--ink);
+      letter-spacing: -0.02em;
+      display: block;
+    }
+    .mstat-label {
+      font-size: 11px;
+      font-weight: 600;
+      color: var(--charcoal);
+      opacity: 0.5;
+      letter-spacing: 0.05em;
+      text-transform: uppercase;
+      display: block;
+      margin-top: 3px;
+    }
+
+    /* Searching overlay animation */
+    @keyframes scanline {
+      0% { transform: translateY(-100%); }
+      100% { transform: translateY(400%); }
+    }
+
+    @media (max-width: 1024px) {
+      .match-body {
+        grid-template-columns: 1fr;
+        gap: 40px;
+      }
+      .match-sidebar { position: static; }
+    }
+    @media (max-width: 680px) {
+      .match-hero-inner { padding: 0 24px; }
+      .match-body { padding: 40px 24px 80px; }
+      .squad-strip-inner { padding: 0 24px; gap: 20px; }
+      .mcard {
+        grid-template-columns: auto 1fr;
+        grid-template-rows: auto auto;
+      }
+      .mcard-right { grid-column: 1 / -1; flex-direction: row; align-items: center; justify-content: space-between; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- ═══════════════════ NAVBAR ═══════════════════ -->
+  <nav class="navbar scrolled" id="navbar">
+    <div class="nav-inner">
+      <a href="index.html" class="nav-logo">
+        <div class="logo-mark">
+          <svg width="30" height="30" viewBox="0 0 30 30" fill="none">
+            <rect width="30" height="30" fill="#000000"/>
+            <circle cx="15" cy="15" r="8" stroke="#f0ebe0" stroke-width="1.4" fill="none"/>
+            <line x1="15" y1="5" x2="15" y2="8.5" stroke="#f0ebe0" stroke-width="1.8" stroke-linecap="round"/>
+            <line x1="15" y1="21.5" x2="15" y2="25" stroke="#f0ebe0" stroke-width="1.8" stroke-linecap="round"/>
+            <line x1="5" y1="15" x2="8.5" y2="15" stroke="#f0ebe0" stroke-width="1.8" stroke-linecap="round"/>
+            <line x1="21.5" y1="15" x2="25" y2="15" stroke="#f0ebe0" stroke-width="1.8" stroke-linecap="round"/>
+            <circle cx="15" cy="15" r="2" fill="#c8b99a"/>
+            <circle cx="15" cy="15" r="4.5" stroke="#c8b99a" stroke-width="0.8" fill="none" opacity="0.5"/>
+          </svg>
+        </div>
+        <span class="logo-text">SquadUp</span>
+      </a>
+      <ul class="nav-links">
+        <li><a href="index.html#features" class="nav-link">Features</a></li>
+        <li><a href="index.html#how-it-works" class="nav-link">How It Works</a></li>
+        <li><a href="index.html#platform" class="nav-link">Platform</a></li>
+        <li><a href="index.html#pricing" class="nav-link">Pricing</a></li>
+      </ul>
+      <div class="nav-right">
+        <a href="index.html#connect" class="btn-connect">
+          <span>Connect</span>
+          <svg width="14" height="14" viewBox="0 0 14 14" fill="none">
+            <path d="M2 7H12M12 7L8 3M12 7L8 11" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/>
+          </svg>
+        </a>
+      </div>
+    </div>
+  </nav>
+
+  <main class="match-page">
+
+    <!-- ── HERO ── -->
+    <div class="match-hero">
+      <div class="match-hero-grid"></div>
+      <div class="match-hero-inner">
+        <a href="index.html" class="match-back">
+          <svg width="14" height="14" viewBox="0 0 14 14" fill="none">
+            <path d="M2 7H12M12 7L8 3M12 7L8 11" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/>
+          </svg>
+          Back to home
+        </a>
+
+        <div class="match-eyebrow">
+          <div class="blink-dot"></div>
+          Squad Matchmaking — AI Active
+        </div>
+
+        <h1 class="match-hero-title">
+          NightOwl Squad<br/>
+          <em>Find your fifth.</em>
+        </h1>
+        <p class="match-hero-sub">
+          Showing matches compatible with your squad's rank, timezone, and playstyle. All matches are live.
+        </p>
+      </div>
+
+      <!-- Squad context strip -->
+      <div class="squad-strip">
+        <div class="squad-strip-inner">
+          <div class="squad-strip-item">
+            <div class="squad-strip-icon">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <polygon points="23 7 16 12 23 17 23 7"/><rect x="1" y="5" width="15" height="14" rx="2" ry="2"/>
+              </svg>
+            </div>
+            <div>
+              <span class="squad-strip-label">Game</span>
+              <span class="squad-strip-val">Valorant</span>
+            </div>
+          </div>
+          <div class="squad-strip-div"></div>
+          <div class="squad-strip-item">
+            <div class="squad-strip-icon">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <polyline points="22 12 18 12 15 21 9 3 6 12 2 12"/>
+              </svg>
+            </div>
+            <div>
+              <span class="squad-strip-label">Rank range</span>
+              <span class="squad-strip-val">Platinum I — Diamond III</span>
+            </div>
+          </div>
+          <div class="squad-strip-div"></div>
+          <div class="squad-strip-item">
+            <div class="squad-strip-icon">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <circle cx="12" cy="12" r="10"/><path d="M12 8v4l3 3"/>
+              </svg>
+            </div>
+            <div>
+              <span class="squad-strip-label">Timezone</span>
+              <span class="squad-strip-val">IST / UTC+5:30</span>
+            </div>
+          </div>
+          <div class="squad-strip-div"></div>
+          <div class="squad-strip-item">
+            <div class="squad-strip-icon">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/>
+              </svg>
+            </div>
+            <div>
+              <span class="squad-strip-label">Slot needed</span>
+              <span class="squad-strip-val">1 of 5 — Support / Flex</span>
+            </div>
+          </div>
+          <div class="squad-strip-div"></div>
+          <div class="squad-strip-item">
+            <div class="squad-strip-icon">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/>
+              </svg>
+            </div>
+            <div>
+              <span class="squad-strip-label">Mode</span>
+              <span class="squad-strip-val">Ranked Competitive</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- ── BODY ── -->
+    <div class="match-body">
+
+      <!-- LEFT — Match Results -->
+      <div class="match-main">
+        <div class="match-results-header">
+          <h2 class="match-results-title">Compatible Players</h2>
+          <span class="match-results-count" id="resultsCount">24 matches found</span>
+        </div>
+
+        <div class="match-filters">
+          <button class="mfilter active" onclick="filterMatches(this, 'all')">All Matches</button>
+          <button class="mfilter" onclick="filterMatches(this, 'online')">
+            <span class="mfilter-dot"></span>Online Now
+          </button>
+          <button class="mfilter" onclick="filterMatches(this, 'support')">Support</button>
+          <button class="mfilter" onclick="filterMatches(this, 'duelist')">Duelist</button>
+          <button class="mfilter" onclick="filterMatches(this, 'controller')">Controller</button>
+          <button class="mfilter" onclick="filterMatches(this, 'flex')">Flex</button>
+        </div>
+
+        <div class="match-cards" id="matchCards">
+
+          <!-- Best match -->
+          <div class="mcard mcard--top reveal">
+            <div class="mcard-av mcard-av--1">VX</div>
+            <div class="mcard-info">
+              <p class="mcard-name">VortexRay</p>
+              <div class="mcard-tags">
+                <span class="mcard-tag">Diamond II</span>
+                <span class="mcard-tag">Flex / Support</span>
+                <span class="mcard-tag">IST</span>
+                <span class="mcard-tag">Nights + Weekends</span>
+                <span class="mcard-tag">2.7 K/D</span>
+              </div>
+            </div>
+            <div class="mcard-right">
+              <span class="mcard-best-match-badge">Best Match</span>
+              <div class="mcard-match-pct">97<span>%</span></div>
+              <button class="mcard-invite-btn" onclick="sendInvite(this, 'VortexRay')">
+                Invite →
+              </button>
+            </div>
+          </div>
+
+          <div class="mcard reveal">
+            <div class="mcard-av mcard-av--2">KR</div>
+            <div class="mcard-info">
+              <p class="mcard-name">K1raBlaze</p>
+              <div class="mcard-tags">
+                <span class="mcard-tag">Platinum I</span>
+                <span class="mcard-tag">Duelist</span>
+                <span class="mcard-tag">IST</span>
+                <span class="mcard-tag">Competitive minded</span>
+                <span class="mcard-tag">3.1 K/D</span>
+              </div>
+            </div>
+            <div class="mcard-right">
+              <div class="mcard-match-pct">91<span>%</span></div>
+              <button class="mcard-invite-btn" onclick="sendInvite(this, 'K1raBlaze')">
+                Invite →
+              </button>
+            </div>
+          </div>
+
+          <div class="mcard reveal">
+            <div class="mcard-av mcard-av--3">NX</div>
+            <div class="mcard-info">
+              <p class="mcard-name">NxGenPlayer</p>
+              <div class="mcard-tags">
+                <span class="mcard-tag">Diamond I</span>
+                <span class="mcard-tag">Controller</span>
+                <span class="mcard-tag">IST</span>
+                <span class="mcard-tag">Team-first</span>
+                <span class="mcard-tag">1.9 K/D</span>
+              </div>
+            </div>
+            <div class="mcard-right">
+              <div class="mcard-match-pct">88<span>%</span></div>
+              <button class="mcard-invite-btn" onclick="sendInvite(this, 'NxGenPlayer')">
+                Invite →
+              </button>
+            </div>
+          </div>
+
+          <div class="mcard reveal">
+            <div class="mcard-av mcard-av--4">ST</div>
+            <div class="mcard-info">
+              <p class="mcard-name">SteelThorn</p>
+              <div class="mcard-tags">
+                <span class="mcard-tag">Diamond III</span>
+                <span class="mcard-tag">Flex</span>
+                <span class="mcard-tag">IST</span>
+                <span class="mcard-tag">Chill grinder</span>
+                <span class="mcard-tag">2.4 K/D</span>
+              </div>
+            </div>
+            <div class="mcard-right">
+              <div class="mcard-match-pct">84<span>%</span></div>
+              <button class="mcard-invite-btn" onclick="sendInvite(this, 'SteelThorn')">
+                Invite →
+              </button>
+            </div>
+          </div>
+
+          <div class="mcard reveal">
+            <div class="mcard-av mcard-av--1">ZV</div>
+            <div class="mcard-info">
+              <p class="mcard-name">ZvoidX</p>
+              <div class="mcard-tags">
+                <span class="mcard-tag">Platinum III</span>
+                <span class="mcard-tag">Support</span>
+                <span class="mcard-tag">IST / SGT</span>
+                <span class="mcard-tag">Comms heavy</span>
+                <span class="mcard-tag">1.7 K/D</span>
+              </div>
+            </div>
+            <div class="mcard-right">
+              <div class="mcard-match-pct">79<span>%</span></div>
+              <button class="mcard-invite-btn" onclick="sendInvite(this, 'ZvoidX')">
+                Invite →
+              </button>
+            </div>
+          </div>
+
+          <div class="mcard reveal">
+            <div class="mcard-av mcard-av--2">RZ</div>
+            <div class="mcard-info">
+              <p class="mcard-name">RazeGod99</p>
+              <div class="mcard-tags">
+                <span class="mcard-tag">Platinum II</span>
+                <span class="mcard-tag">Duelist</span>
+                <span class="mcard-tag">IST</span>
+                <span class="mcard-tag">Entry fragger</span>
+                <span class="mcard-tag">2.9 K/D</span>
+              </div>
+            </div>
+            <div class="mcard-right">
+              <div class="mcard-match-pct">75<span>%</span></div>
+              <button class="mcard-invite-btn" onclick="sendInvite(this, 'RazeGod99')">
+                Invite →
+              </button>
+            </div>
+          </div>
+
+        </div>
+      </div>
+
+      <!-- RIGHT — Sidebar -->
+      <aside class="match-sidebar">
+
+        <!-- Your squad -->
+        <div class="msidebar-card">
+          <div class="msidebar-title">
+            NightOwl Squad
+            <span class="msidebar-title-badge">LIVE</span>
+          </div>
+          <div class="your-squad-members">
+            <div class="ysm-item">
+              <div class="ysm-av ysm-av--1">
+                R
+                <div class="ysm-status ysm-status--online"></div>
+              </div>
+              <span class="ysm-name">raidzen</span>
+              <span class="ysm-rank">D2</span>
+            </div>
+            <div class="ysm-item">
+              <div class="ysm-av ysm-av--2">
+                X
+                <div class="ysm-status ysm-status--online"></div>
+              </div>
+              <span class="ysm-name">xNoScope</span>
+              <span class="ysm-rank">P1</span>
+            </div>
+            <div class="ysm-item">
+              <div class="ysm-av ysm-av--3">
+                Z
+                <div class="ysm-status ysm-status--away"></div>
+              </div>
+              <span class="ysm-name">Zerova</span>
+              <span class="ysm-rank">D3</span>
+            </div>
+            <div class="ysm-item">
+              <div class="ysm-av ysm-av--4">
+                K
+                <div class="ysm-status ysm-status--online"></div>
+              </div>
+              <span class="ysm-name">k1ra</span>
+              <span class="ysm-rank">D1</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Queue prefs -->
+        <div class="msidebar-card">
+          <div class="msidebar-title">Queue Preferences</div>
+          <div class="qpref-rows">
+            <div class="qpref-row">
+              <span class="qpref-label">Game Mode</span>
+              <span class="qpref-val">Ranked</span>
+            </div>
+            <div class="qpref-row">
+              <span class="qpref-label">Map Pool</span>
+              <span class="qpref-val">All maps</span>
+            </div>
+            <div class="qpref-row">
+              <span class="qpref-label">Mic Required</span>
+              <span class="qpref-val">Yes</span>
+            </div>
+            <div class="qpref-row">
+              <span class="qpref-label">Session length</span>
+              <span class="qpref-val">2–4 hours</span>
+            </div>
+            <div class="qpref-row">
+              <span class="qpref-label">Language</span>
+              <span class="qpref-val">English / Hindi</span>
+            </div>
+          </div>
+          <button class="queue-now-btn" id="queueBtn" style="margin-top:18px;" onclick="toggleQueue()">
+            <span class="queue-pulse"></span>
+            <span class="queue-label">Queue as Squad</span>
+            <svg class="queue-arrow" width="15" height="15" viewBox="0 0 14 14" fill="none">
+              <path d="M2 7H12M12 7L8 3M12 7L8 11" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/>
+            </svg>
+          </button>
+        </div>
+
+        <!-- Session stats -->
+        <div class="msidebar-card">
+          <div class="msidebar-title">Today's Session</div>
+          <div class="mstats-grid">
+            <div class="mstat-box">
+              <span class="mstat-val">14</span>
+              <span class="mstat-label">Wins</span>
+            </div>
+            <div class="mstat-box">
+              <span class="mstat-val">73%</span>
+              <span class="mstat-label">Win Rate</span>
+            </div>
+            <div class="mstat-box">
+              <span class="mstat-val">2.4</span>
+              <span class="mstat-label">K/D</span>
+            </div>
+            <div class="mstat-box">
+              <span class="mstat-val">+840</span>
+              <span class="mstat-label">RR Gained</span>
+            </div>
+          </div>
+        </div>
+
+      </aside>
+    </div>
+  </main>
+
+  <script src="main.js"></script>
+  <script>
+    function filterMatches(btn, type) {
+      document.querySelectorAll('.mfilter').forEach(b => b.classList.remove('active'));
+      btn.classList.add('active');
+    }
+
+    function sendInvite(btn, name) {
+      const original = btn.innerHTML;
+      btn.innerHTML = '✓ Invited';
+      btn.style.background = 'rgba(74,222,128,0.15)';
+      btn.style.color = '#16a34a';
+      btn.style.border = '1px solid rgba(74,222,128,0.3)';
+      btn.disabled = true;
+      setTimeout(() => {
+        btn.innerHTML = original;
+        btn.style.cssText = '';
+        btn.disabled = false;
+      }, 3000);
+    }
+
+    function toggleQueue() {
+      const btn = document.getElementById('queueBtn');
+      const label = btn.querySelector('.queue-label');
+      if (btn.classList.contains('searching')) {
+        btn.classList.remove('searching');
+        label.textContent = 'Queue as Squad';
+      } else {
+        btn.classList.add('searching');
+        label.textContent = 'Searching...';
+      }
+    }
+
+    // init reveal
+    document.addEventListener('DOMContentLoaded', () => {
+      const reveals = document.querySelectorAll('.reveal');
+      const obs = new IntersectionObserver(entries => {
+        entries.forEach(e => { if (e.isIntersecting) { e.target.classList.add('in-view'); obs.unobserve(e.target); } });
+      }, { threshold: 0.1 });
+      reveals.forEach(el => obs.observe(el));
+    });
+  </script>
+</body>
+</html>

@@ -1,0 +1,844 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>SquadUp — How It Works</title>
+  <link rel="stylesheet" href="style.css" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@300;400;500;600;700&family=Space+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet" />
+  <style>
+    /* ── HOW IT WORKS PAGE ── */
+    .start-page {
+      min-height: 100vh;
+      background: var(--off-white);
+      padding-top: var(--nav-h);
+      overflow-x: hidden;
+    }
+
+    /* HERO */
+    .start-hero {
+      background: var(--ink);
+      padding: 96px 48px 80px;
+      text-align: center;
+      position: relative;
+      overflow: hidden;
+    }
+    .start-hero-grid {
+      position: absolute;
+      inset: 0;
+      background-image:
+        linear-gradient(rgba(240,235,224,0.035) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(240,235,224,0.035) 1px, transparent 1px);
+      background-size: 52px 52px;
+      animation: gridShift 20s linear infinite;
+    }
+    @keyframes gridShift {
+      0% { background-position: 0 0; }
+      100% { background-position: 52px 52px; }
+    }
+    .start-hero-orb {
+      position: absolute;
+      border-radius: 50%;
+      filter: blur(80px);
+    }
+    .start-hero-orb--1 {
+      width: 500px; height: 500px;
+      background: radial-gradient(circle, rgba(200,185,154,0.12) 0%, transparent 70%);
+      top: -100px; left: 50%;
+      transform: translateX(-50%);
+    }
+
+    .start-hero-inner {
+      position: relative;
+      z-index: 1;
+      max-width: 720px;
+      margin: 0 auto;
+    }
+    .start-back {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      font-size: 13px;
+      font-weight: 600;
+      color: var(--cream);
+      opacity: 0.45;
+      text-decoration: none;
+      margin-bottom: 48px;
+      transition: opacity 0.2s, gap 0.2s;
+    }
+    .start-back:hover { opacity: 0.8; gap: 4px; }
+    .start-back svg { transform: rotate(180deg); }
+
+    .start-eyebrow {
+      font-size: 11px;
+      font-weight: 700;
+      letter-spacing: 0.15em;
+      text-transform: uppercase;
+      color: var(--muted-gold);
+      margin-bottom: 20px;
+    }
+    .start-title {
+      font-family: var(--font-display);
+      font-size: clamp(38px, 6vw, 72px);
+      font-weight: 700;
+      color: var(--cream);
+      line-height: 1.06;
+      letter-spacing: -0.035em;
+      margin-bottom: 20px;
+    }
+    .start-title em {
+      font-style: normal;
+      color: var(--muted-gold);
+    }
+    .start-sub {
+      font-size: 16px;
+      font-weight: 400;
+      color: var(--cream);
+      opacity: 0.5;
+      line-height: 1.7;
+      max-width: 500px;
+      margin: 0 auto;
+    }
+
+    /* ── FLOW DIAGRAM ── */
+    .flow-section {
+      padding: 100px 0 120px;
+      background: var(--off-white);
+    }
+    .flow-inner {
+      max-width: 1000px;
+      margin: 0 auto;
+      padding: 0 48px;
+    }
+
+    /* Flow nodes connected by dotted lines */
+    .flow-track {
+      position: relative;
+      display: flex;
+      flex-direction: column;
+      gap: 0;
+    }
+
+    .flow-node {
+      display: grid;
+      grid-template-columns: 80px 1fr;
+      gap: 40px;
+      align-items: flex-start;
+      position: relative;
+      opacity: 0;
+      transform: translateX(-24px);
+      transition: opacity 0.6s var(--ease-out), transform 0.6s var(--ease-out);
+    }
+    .flow-node.visible {
+      opacity: 1;
+      transform: translateX(0);
+    }
+    .flow-node:nth-child(2) { transition-delay: 0.15s; }
+    .flow-node:nth-child(3) { transition-delay: 0.3s; }
+    .flow-node:nth-child(4) { transition-delay: 0.45s; }
+    .flow-node:nth-child(5) { transition-delay: 0.6s; }
+
+    /* Left column: number + dotted line */
+    .flow-spine {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      padding-top: 4px;
+    }
+    .flow-num-wrap {
+      width: 52px;
+      height: 52px;
+      border: 2px solid var(--ink);
+      background: var(--ink);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-shrink: 0;
+      position: relative;
+      z-index: 2;
+    }
+    .flow-num {
+      font-family: var(--font-display);
+      font-size: 16px;
+      font-weight: 700;
+      color: var(--cream);
+      letter-spacing: -0.02em;
+    }
+    .flow-line {
+      width: 2px;
+      flex: 1;
+      min-height: 60px;
+      background: repeating-linear-gradient(
+        to bottom,
+        var(--muted-gold) 0px,
+        var(--muted-gold) 6px,
+        transparent 6px,
+        transparent 14px
+      );
+      margin-top: 0;
+      opacity: 0.45;
+      animation: lineDash 1.5s linear infinite;
+      background-size: 2px 14px;
+    }
+    @keyframes lineDash {
+      0% { background-position: 0 0; }
+      100% { background-position: 0 14px; }
+    }
+    .flow-node:last-child .flow-line { display: none; }
+
+    /* Right column: content */
+    .flow-content {
+      padding: 6px 0 72px;
+    }
+    .flow-node:last-child .flow-content { padding-bottom: 0; }
+    .flow-step-eyebrow {
+      font-size: 11px;
+      font-weight: 700;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: var(--muted-gold);
+      margin-bottom: 10px;
+    }
+    .flow-step-title {
+      font-family: var(--font-display);
+      font-size: clamp(24px, 3vw, 34px);
+      font-weight: 700;
+      color: var(--ink);
+      letter-spacing: -0.025em;
+      line-height: 1.12;
+      margin-bottom: 14px;
+    }
+    .flow-step-body {
+      font-size: 15px;
+      font-weight: 400;
+      color: var(--charcoal);
+      opacity: 0.68;
+      line-height: 1.75;
+      max-width: 560px;
+      margin-bottom: 24px;
+    }
+
+    /* Mini illustration card for each step */
+    .flow-card {
+      display: inline-flex;
+      align-items: center;
+      gap: 12px;
+      padding: 14px 20px;
+      background: var(--beige-mid);
+      border: 1px solid var(--warm-sand);
+      margin-bottom: 8px;
+    }
+    .flow-card + .flow-card { margin-left: 12px; }
+    .flow-card-icon {
+      width: 34px;
+      height: 34px;
+      background: var(--cream);
+      border: 1px solid var(--warm-sand);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: var(--ink);
+      flex-shrink: 0;
+    }
+    .flow-card-text {
+      font-size: 13px;
+      font-weight: 600;
+      color: var(--ink);
+    }
+    .flow-card-sub {
+      font-size: 11.5px;
+      font-weight: 400;
+      color: var(--charcoal);
+      opacity: 0.55;
+      display: block;
+      margin-top: 2px;
+    }
+
+    .flow-pill-row {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+      margin-top: 8px;
+    }
+    .flow-pill {
+      display: inline-flex;
+      align-items: center;
+      gap: 7px;
+      padding: 7px 14px;
+      border: 1px solid var(--warm-sand);
+      font-size: 12.5px;
+      font-weight: 600;
+      color: var(--charcoal);
+      background: var(--off-white);
+    }
+    .flow-pill-dot {
+      width: 6px;
+      height: 6px;
+      border-radius: 50%;
+      background: var(--muted-gold);
+      flex-shrink: 0;
+    }
+
+    /* ── CENTRAL CONNECTION DIAGRAM ── */
+    .connection-section {
+      background: var(--ink);
+      padding: 100px 0;
+      overflow: hidden;
+      position: relative;
+    }
+    .connection-inner {
+      max-width: 900px;
+      margin: 0 auto;
+      padding: 0 48px;
+      text-align: center;
+    }
+    .connection-header {
+      margin-bottom: 72px;
+    }
+    .connection-eyebrow {
+      font-size: 11px;
+      font-weight: 700;
+      letter-spacing: 0.15em;
+      text-transform: uppercase;
+      color: var(--muted-gold);
+      margin-bottom: 16px;
+    }
+    .connection-title {
+      font-family: var(--font-display);
+      font-size: clamp(28px, 4vw, 46px);
+      font-weight: 700;
+      color: var(--cream);
+      letter-spacing: -0.03em;
+      line-height: 1.1;
+    }
+
+    /* SVG diagram */
+    .connection-diagram {
+      position: relative;
+      width: 100%;
+    }
+    .connection-diagram svg {
+      width: 100%;
+      height: auto;
+      overflow: visible;
+    }
+
+    /* ── SUMMARY ROW ── */
+    .summary-section {
+      background: var(--beige-mid);
+      border-top: 1px solid var(--warm-sand);
+      padding: 80px 0 100px;
+    }
+    .summary-inner {
+      max-width: 1000px;
+      margin: 0 auto;
+      padding: 0 48px;
+    }
+    .summary-headline {
+      font-family: var(--font-display);
+      font-size: clamp(26px, 4vw, 40px);
+      font-weight: 700;
+      color: var(--ink);
+      letter-spacing: -0.03em;
+      margin-bottom: 56px;
+      text-align: center;
+    }
+    .summary-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 20px;
+    }
+    .summary-card {
+      background: var(--off-white);
+      border: 1px solid var(--warm-sand);
+      padding: 32px 28px;
+      opacity: 0;
+      transform: translateY(20px);
+      transition: opacity 0.5s var(--ease-out), transform 0.5s var(--ease-out);
+    }
+    .summary-card.visible { opacity: 1; transform: translateY(0); }
+    .summary-card:nth-child(2) { transition-delay: 0.1s; }
+    .summary-card:nth-child(3) { transition-delay: 0.2s; }
+    .summary-card-num {
+      font-family: var(--font-display);
+      font-size: 52px;
+      font-weight: 700;
+      color: var(--ink);
+      letter-spacing: -0.04em;
+      line-height: 1;
+      margin-bottom: 10px;
+      opacity: 0.12;
+    }
+    .summary-card-title {
+      font-family: var(--font-display);
+      font-size: 18px;
+      font-weight: 700;
+      color: var(--ink);
+      letter-spacing: -0.015em;
+      margin-bottom: 10px;
+    }
+    .summary-card-body {
+      font-size: 13.5px;
+      font-weight: 400;
+      color: var(--charcoal);
+      opacity: 0.62;
+      line-height: 1.7;
+    }
+
+    /* CTA */
+    .start-cta {
+      background: var(--ink);
+      padding: 80px 48px;
+      text-align: center;
+    }
+    .start-cta-title {
+      font-family: var(--font-display);
+      font-size: clamp(28px, 4vw, 48px);
+      font-weight: 700;
+      color: var(--cream);
+      letter-spacing: -0.03em;
+      margin-bottom: 12px;
+    }
+    .start-cta-sub {
+      font-size: 15px;
+      font-weight: 400;
+      color: var(--cream);
+      opacity: 0.45;
+      margin-bottom: 36px;
+    }
+    .start-cta-btns {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 16px;
+      flex-wrap: wrap;
+    }
+
+    @media (max-width: 768px) {
+      .start-hero { padding: 64px 24px 60px; }
+      .flow-inner { padding: 0 24px; }
+      .connection-inner { padding: 0 24px; }
+      .summary-inner { padding: 0 24px; }
+      .summary-grid { grid-template-columns: 1fr; }
+      .flow-node { grid-template-columns: 56px 1fr; gap: 20px; }
+      .flow-cards-row { flex-direction: column; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- ═══════════════════ NAVBAR ═══════════════════ -->
+  <nav class="navbar scrolled" id="navbar">
+    <div class="nav-inner">
+      <a href="index.html" class="nav-logo">
+        <div class="logo-mark">
+          <svg width="30" height="30" viewBox="0 0 30 30" fill="none">
+            <rect width="30" height="30" fill="#000000"/>
+            <circle cx="15" cy="15" r="8" stroke="#f0ebe0" stroke-width="1.4" fill="none"/>
+            <line x1="15" y1="5" x2="15" y2="8.5" stroke="#f0ebe0" stroke-width="1.8" stroke-linecap="round"/>
+            <line x1="15" y1="21.5" x2="15" y2="25" stroke="#f0ebe0" stroke-width="1.8" stroke-linecap="round"/>
+            <line x1="5" y1="15" x2="8.5" y2="15" stroke="#f0ebe0" stroke-width="1.8" stroke-linecap="round"/>
+            <line x1="21.5" y1="15" x2="25" y2="15" stroke="#f0ebe0" stroke-width="1.8" stroke-linecap="round"/>
+            <circle cx="15" cy="15" r="2" fill="#c8b99a"/>
+            <circle cx="15" cy="15" r="4.5" stroke="#c8b99a" stroke-width="0.8" fill="none" opacity="0.5"/>
+          </svg>
+        </div>
+        <span class="logo-text">SquadUp</span>
+      </a>
+      <ul class="nav-links">
+        <li><a href="index.html#features" class="nav-link">Features</a></li>
+        <li><a href="index.html#platform" class="nav-link">Platform</a></li>
+        <li><a href="index.html#pricing" class="nav-link">Pricing</a></li>
+      </ul>
+      <div class="nav-right">
+        <a href="index.html#connect" class="btn-connect">
+          <span>Get started</span>
+          <svg width="14" height="14" viewBox="0 0 14 14" fill="none">
+            <path d="M2 7H12M12 7L8 3M12 7L8 11" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/>
+          </svg>
+        </a>
+      </div>
+    </div>
+  </nav>
+
+  <main class="start-page">
+
+    <!-- ── HERO ── -->
+    <section class="start-hero">
+      <div class="start-hero-grid"></div>
+      <div class="start-hero-orb start-hero-orb--1"></div>
+      <div class="start-hero-inner">
+        <a href="index.html" class="start-back">
+          <svg width="14" height="14" viewBox="0 0 14 14" fill="none">
+            <path d="M2 7H12M12 7L8 3M12 7L8 11" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/>
+          </svg>
+          Back to SquadUp
+        </a>
+        <p class="start-eyebrow">How SquadUp Works</p>
+        <h1 class="start-title">
+          Five steps from signup<br/>
+          to <em>winning together.</em>
+        </h1>
+        <p class="start-sub">
+          SquadUp replaces the five-app juggling act. Here's exactly how everything connects — from your first login to your first squad win.
+        </p>
+      </div>
+    </section>
+
+    <!-- ── FLOW DIAGRAM ── -->
+    <section class="flow-section" id="flow">
+      <div class="flow-inner">
+        <div class="flow-track" id="flowTrack">
+
+          <!-- STEP 01 -->
+          <div class="flow-node" data-step="1">
+            <div class="flow-spine">
+              <div class="flow-num-wrap">
+                <span class="flow-num">01</span>
+              </div>
+              <div class="flow-line"></div>
+            </div>
+            <div class="flow-content">
+              <p class="flow-step-eyebrow">Identity</p>
+              <h2 class="flow-step-title">Create your unified<br/>gaming profile</h2>
+              <p class="flow-step-body">
+                Sign up and link every game account you own in one shot. SquadUp pulls your real rank history, match stats, and playtime automatically. No manual entry, no lying about your MMR.
+              </p>
+              <div class="flow-pill-row">
+                <div class="flow-pill"><span class="flow-pill-dot"></span>Steam</div>
+                <div class="flow-pill"><span class="flow-pill-dot"></span>Riot (Valorant / LoL)</div>
+                <div class="flow-pill"><span class="flow-pill-dot"></span>PSN</div>
+                <div class="flow-pill"><span class="flow-pill-dot"></span>Xbox Live</div>
+                <div class="flow-pill"><span class="flow-pill-dot"></span>Battle.net</div>
+                <div class="flow-pill"><span class="flow-pill-dot"></span>340+ games</div>
+              </div>
+            </div>
+          </div>
+
+          <!-- STEP 02 -->
+          <div class="flow-node" data-step="2">
+            <div class="flow-spine">
+              <div class="flow-num-wrap">
+                <span class="flow-num">02</span>
+              </div>
+              <div class="flow-line"></div>
+            </div>
+            <div class="flow-content">
+              <p class="flow-step-eyebrow">Matching</p>
+              <h2 class="flow-step-title">AI surfaces your<br/>perfect squad</h2>
+              <p class="flow-step-body">
+                Our matching engine doesn't just match by rank. It cross-references playstyle, in-game role, peak hours, language, communication style, and win conditions. You get compatible players — not just statistically nearby ones.
+              </p>
+              <div style="display:flex; gap:12px; flex-wrap:wrap;">
+                <div class="flow-card">
+                  <div class="flow-card-icon">
+                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="22 12 18 12 15 21 9 3 6 12 2 12"/></svg>
+                  </div>
+                  <div>
+                    <span class="flow-card-text">Rank & MMR</span>
+                    <span class="flow-card-sub">Real-time sync</span>
+                  </div>
+                </div>
+                <div class="flow-card">
+                  <div class="flow-card-icon">
+                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><path d="M12 8v4l3 3"/></svg>
+                  </div>
+                  <div>
+                    <span class="flow-card-text">Schedule Match</span>
+                    <span class="flow-card-sub">Timezone-aware</span>
+                  </div>
+                </div>
+                <div class="flow-card">
+                  <div class="flow-card-icon">
+                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg>
+                  </div>
+                  <div>
+                    <span class="flow-card-text">Comms Style</span>
+                    <span class="flow-card-sub">Chill vs. tryhard</span>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- STEP 03 -->
+          <div class="flow-node" data-step="3">
+            <div class="flow-spine">
+              <div class="flow-num-wrap">
+                <span class="flow-num">03</span>
+              </div>
+              <div class="flow-line"></div>
+            </div>
+            <div class="flow-content">
+              <p class="flow-step-eyebrow">Connection</p>
+              <h2 class="flow-step-title">Drop into voice,<br/>no setup required</h2>
+              <p class="flow-step-body">
+                One click and you're in a squad lobby with sub-20ms voice latency. Roles, channels, and push-to-talk all configured in seconds. No Discord server to set up, no invite links, no permission settings — it just works.
+              </p>
+              <div class="flow-pill-row">
+                <div class="flow-pill"><span class="flow-pill-dot"></span>Sub-20ms latency</div>
+                <div class="flow-pill"><span class="flow-pill-dot"></span>Spatial audio</div>
+                <div class="flow-pill"><span class="flow-pill-dot"></span>Push-to-talk</div>
+                <div class="flow-pill"><span class="flow-pill-dot"></span>In-game overlay</div>
+              </div>
+            </div>
+          </div>
+
+          <!-- STEP 04 -->
+          <div class="flow-node" data-step="4">
+            <div class="flow-spine">
+              <div class="flow-num-wrap">
+                <span class="flow-num">04</span>
+              </div>
+              <div class="flow-line"></div>
+            </div>
+            <div class="flow-content">
+              <p class="flow-step-eyebrow">Content</p>
+              <h2 class="flow-step-title">Stream, clip, and share<br/>without leaving</h2>
+              <p class="flow-step-body">
+                Go live with one click — simultaneously to Twitch, YouTube, and SquadUp's own community. SquadUp auto-detects your highlights, cuts the clip, and posts it to your story feed. Your community never misses a moment.
+              </p>
+              <div style="display:flex; gap:12px; flex-wrap:wrap;">
+                <div class="flow-card">
+                  <div class="flow-card-icon">
+                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polygon points="23 7 16 12 23 17 23 7"/><rect x="1" y="5" width="15" height="14" rx="2" ry="2"/></svg>
+                  </div>
+                  <div>
+                    <span class="flow-card-text">Live Streaming</span>
+                    <span class="flow-card-sub">1080p60 · multi-stream</span>
+                  </div>
+                </div>
+                <div class="flow-card">
+                  <div class="flow-card-icon">
+                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 15s1-1 4-1 5 2 8 2 4-1 4-1V3s-1 1-4 1-5-2-8-2-4 1-4 1z"/><line x1="4" y1="22" x2="4" y2="15"/></svg>
+                  </div>
+                  <div>
+                    <span class="flow-card-text">Story Feed</span>
+                    <span class="flow-card-sub">Auto-clipped highlights</span>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- STEP 05 -->
+          <div class="flow-node" data-step="5">
+            <div class="flow-spine">
+              <div class="flow-num-wrap">
+                <span class="flow-num">05</span>
+              </div>
+            </div>
+            <div class="flow-content">
+              <p class="flow-step-eyebrow">Growth</p>
+              <h2 class="flow-step-title">Track rank, compete,<br/>and climb together</h2>
+              <p class="flow-step-body">
+                Live stats, match-by-match breakdowns, and long-term performance trends for your entire squad. Know exactly where you're improving, where you're dropping LP, and what to fix next session. Host tournaments, build your reputation, grow your roster.
+              </p>
+              <div class="flow-pill-row">
+                <div class="flow-pill"><span class="flow-pill-dot"></span>Live rank tracker</div>
+                <div class="flow-pill"><span class="flow-pill-dot"></span>Team analytics</div>
+                <div class="flow-pill"><span class="flow-pill-dot"></span>Tournament hub</div>
+                <div class="flow-pill"><span class="flow-pill-dot"></span>Season leaderboards</div>
+              </div>
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- ── CONNECTED DIAGRAM ── -->
+    <section class="connection-section" id="connection">
+      <div class="connection-inner">
+        <div class="connection-header">
+          <p class="connection-eyebrow">Everything Connected</p>
+          <h2 class="connection-title">One platform.<br/>All the dots joined.</h2>
+        </div>
+
+        <div class="connection-diagram" id="connDiagram">
+          <svg viewBox="0 0 800 520" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <!-- Dotted connecting lines (drawn first, behind nodes) -->
+            <!-- Profile → Matching -->
+            <line class="conn-line" x1="200" y1="100" x2="400" y2="100" stroke="rgba(200,185,154,0.3)" stroke-width="1.5" stroke-dasharray="5 8"/>
+            <!-- Profile → Voice -->
+            <line class="conn-line" x1="180" y1="115" x2="180" y2="280" stroke="rgba(200,185,154,0.3)" stroke-width="1.5" stroke-dasharray="5 8"/>
+            <!-- Matching → Voice -->
+            <line class="conn-line" x1="400" y1="115" x2="320" y2="280" stroke="rgba(200,185,154,0.3)" stroke-width="1.5" stroke-dasharray="5 8"/>
+            <!-- Matching → Stream -->
+            <line class="conn-line" x1="420" y1="115" x2="560" y2="280" stroke="rgba(200,185,154,0.3)" stroke-width="1.5" stroke-dasharray="5 8"/>
+            <!-- Matching → Stats -->
+            <line class="conn-line" x1="400" y1="115" x2="400" y2="380" stroke="rgba(200,185,154,0.3)" stroke-width="1.5" stroke-dasharray="5 8"/>
+            <!-- Voice → Stats -->
+            <line class="conn-line" x1="290" y1="320" x2="370" y2="390" stroke="rgba(200,185,154,0.3)" stroke-width="1.5" stroke-dasharray="5 8"/>
+            <!-- Stream → Stats -->
+            <line class="conn-line" x1="530" y1="320" x2="430" y2="390" stroke="rgba(200,185,154,0.3)" stroke-width="1.5" stroke-dasharray="5 8"/>
+            <!-- Central SquadUp hub -->
+            <line class="conn-line" x1="590" y1="180" x2="480" y2="115" stroke="rgba(200,185,154,0.25)" stroke-width="1.5" stroke-dasharray="5 8"/>
+            <line class="conn-line" x1="610" y1="195" x2="570" y2="295" stroke="rgba(200,185,154,0.25)" stroke-width="1.5" stroke-dasharray="5 8"/>
+
+            <!-- SquadUp central node -->
+            <rect x="540" y="140" width="120" height="80" fill="rgba(200,185,154,0.08)" stroke="rgba(200,185,154,0.4)" stroke-width="1.5"/>
+            <text x="600" y="175" font-family="Space Grotesk, sans-serif" font-weight="700" font-size="13" fill="#c8b99a" text-anchor="middle" letter-spacing="-0.3">SquadUp</text>
+            <text x="600" y="195" font-family="DM Sans, sans-serif" font-weight="400" font-size="10.5" fill="rgba(240,235,224,0.35)" text-anchor="middle">command center</text>
+            <!-- Crosshair inside central node -->
+            <circle cx="600" cy="157" r="7" stroke="rgba(200,185,154,0.5)" stroke-width="1" fill="none"/>
+            <line x1="600" y1="152" x2="600" y2="155" stroke="rgba(200,185,154,0.5)" stroke-width="1.2" stroke-linecap="round"/>
+            <line x1="600" y1="159" x2="600" y2="162" stroke="rgba(200,185,154,0.5)" stroke-width="1.2" stroke-linecap="round"/>
+            <line x1="595" y1="157" x2="598" y2="157" stroke="rgba(200,185,154,0.5)" stroke-width="1.2" stroke-linecap="round"/>
+            <line x1="602" y1="157" x2="605" y2="157" stroke="rgba(200,185,154,0.5)" stroke-width="1.2" stroke-linecap="round"/>
+            <circle cx="600" cy="157" r="1.5" fill="rgba(200,185,154,0.7)"/>
+
+            <!-- NODE: Profile (top left) -->
+            <g class="conn-node" transform="translate(120,60)">
+              <rect x="0" y="0" width="120" height="72" fill="rgba(240,235,224,0.05)" stroke="rgba(240,235,224,0.15)" stroke-width="1.5"/>
+              <rect x="12" y="14" width="28" height="28" fill="rgba(240,235,224,0.08)" stroke="rgba(240,235,224,0.12)" stroke-width="1"/>
+              <!-- Profile icon -->
+              <circle cx="26" cy="24" r="5" stroke="rgba(240,235,224,0.5)" stroke-width="1.5" fill="none"/>
+              <path d="M16 38c0-5.5 4.5-8 10-8s10 2.5 10 8" stroke="rgba(240,235,224,0.5)" stroke-width="1.5" fill="none" stroke-linecap="round"/>
+              <text x="48" y="24" font-family="Space Grotesk, sans-serif" font-weight="700" font-size="12" fill="rgba(240,235,224,0.9)">Profile</text>
+              <text x="48" y="38" font-family="DM Sans, sans-serif" font-size="10" fill="rgba(240,235,224,0.35)">Your identity</text>
+              <circle cx="105" cy="8" r="5" fill="rgba(74,222,128,0.25)" stroke="rgba(74,222,128,0.5)" stroke-width="1"/>
+              <circle cx="105" cy="8" r="2.5" fill="#4ade80"/>
+            </g>
+
+            <!-- NODE: AI Matching (top center) -->
+            <g class="conn-node" transform="translate(340,60)">
+              <rect x="0" y="0" width="120" height="72" fill="rgba(200,185,154,0.08)" stroke="rgba(200,185,154,0.3)" stroke-width="1.5"/>
+              <rect x="12" y="14" width="28" height="28" fill="rgba(200,185,154,0.1)" stroke="rgba(200,185,154,0.2)" stroke-width="1"/>
+              <!-- AI/match icon -->
+              <circle cx="26" cy="25" r="6" stroke="#c8b99a" stroke-width="1.5" fill="none"/>
+              <path d="M20 33l6-8 6 8" stroke="#c8b99a" stroke-width="1.5" fill="none" stroke-linecap="round" stroke-linejoin="round"/>
+              <text x="48" y="24" font-family="Space Grotesk, sans-serif" font-weight="700" font-size="12" fill="rgba(240,235,224,0.9)">AI Match</text>
+              <text x="48" y="38" font-family="DM Sans, sans-serif" font-size="10" fill="rgba(240,235,224,0.35)">Smart pairing</text>
+              <text x="105" y="12" font-family="Space Grotesk, sans-serif" font-weight="700" font-size="9" fill="#c8b99a" text-anchor="middle">AI</text>
+            </g>
+
+            <!-- NODE: Voice Chat (mid left) -->
+            <g class="conn-node" transform="translate(110,260)">
+              <rect x="0" y="0" width="120" height="72" fill="rgba(240,235,224,0.05)" stroke="rgba(240,235,224,0.12)" stroke-width="1.5"/>
+              <rect x="12" y="14" width="28" height="28" fill="rgba(240,235,224,0.06)" stroke="rgba(240,235,224,0.1)" stroke-width="1"/>
+              <!-- Mic icon -->
+              <rect x="20" y="16" width="12" height="16" rx="6" stroke="rgba(240,235,224,0.55)" stroke-width="1.5" fill="none"/>
+              <path d="M16 28c0 5.5 4.5 8 10 8s10-2.5 10-8" stroke="rgba(240,235,224,0.55)" stroke-width="1.5" fill="none" stroke-linecap="round"/>
+              <line x1="26" y1="36" x2="26" y2="40" stroke="rgba(240,235,224,0.55)" stroke-width="1.5" stroke-linecap="round"/>
+              <text x="48" y="24" font-family="Space Grotesk, sans-serif" font-weight="700" font-size="12" fill="rgba(240,235,224,0.9)">Voice</text>
+              <text x="48" y="38" font-family="DM Sans, sans-serif" font-size="10" fill="rgba(240,235,224,0.35)">Sub-20ms</text>
+            </g>
+
+            <!-- NODE: Stream (mid right) -->
+            <g class="conn-node" transform="translate(490,260)">
+              <rect x="0" y="0" width="120" height="72" fill="rgba(240,235,224,0.05)" stroke="rgba(240,235,224,0.12)" stroke-width="1.5"/>
+              <rect x="12" y="14" width="28" height="28" fill="rgba(240,235,224,0.06)" stroke="rgba(240,235,224,0.1)" stroke-width="1"/>
+              <!-- Video camera icon -->
+              <rect x="12" y="19" width="20" height="14" rx="2" stroke="rgba(240,235,224,0.55)" stroke-width="1.5" fill="none"/>
+              <path d="M32 23l8-4v12l-8-4V23z" stroke="rgba(240,235,224,0.55)" stroke-width="1.5" fill="none" stroke-linejoin="round"/>
+              <text x="48" y="24" font-family="Space Grotesk, sans-serif" font-weight="700" font-size="12" fill="rgba(240,235,224,0.9)">Stream</text>
+              <text x="48" y="38" font-family="DM Sans, sans-serif" font-size="10" fill="rgba(240,235,224,0.35)">1-click live</text>
+              <!-- Live badge -->
+              <rect x="95" y="4" width="20" height="12" fill="rgba(74,222,128,0.15)" stroke="rgba(74,222,128,0.3)" stroke-width="1"/>
+              <circle cx="99" cy="10" r="2" fill="#4ade80"/>
+            </g>
+
+            <!-- NODE: Stats / Growth (bottom center) -->
+            <g class="conn-node" transform="translate(340,390)">
+              <rect x="0" y="0" width="120" height="72" fill="rgba(240,235,224,0.05)" stroke="rgba(240,235,224,0.12)" stroke-width="1.5"/>
+              <rect x="12" y="14" width="28" height="28" fill="rgba(240,235,224,0.06)" stroke="rgba(240,235,224,0.1)" stroke-width="1"/>
+              <!-- Chart icon -->
+              <polyline points="14,38 19,28 24,34 29,20 34,26 38,18" stroke="rgba(240,235,224,0.55)" stroke-width="1.5" fill="none" stroke-linecap="round" stroke-linejoin="round"/>
+              <text x="48" y="24" font-family="Space Grotesk, sans-serif" font-weight="700" font-size="12" fill="rgba(240,235,224,0.9)">Rank Tracker</text>
+              <text x="48" y="38" font-family="DM Sans, sans-serif" font-size="10" fill="rgba(240,235,224,0.35)">340+ games</text>
+            </g>
+
+            <!-- Animated traveling dots on lines -->
+            <circle r="3" fill="#c8b99a" opacity="0.7">
+              <animateMotion dur="3s" repeatCount="indefinite" path="M200,100 L400,100"/>
+            </circle>
+            <circle r="3" fill="rgba(74,222,128,0.7)" opacity="0.6">
+              <animateMotion dur="4s" repeatCount="indefinite" begin="1s" path="M400,115 L320,280"/>
+            </circle>
+            <circle r="3" fill="#c8b99a" opacity="0.6">
+              <animateMotion dur="3.5s" repeatCount="indefinite" begin="0.5s" path="M420,115 L560,280"/>
+            </circle>
+            <circle r="2.5" fill="rgba(240,235,224,0.5)" opacity="0.5">
+              <animateMotion dur="5s" repeatCount="indefinite" begin="2s" path="M400,115 L400,380"/>
+            </circle>
+            <circle r="2.5" fill="#c8b99a" opacity="0.5">
+              <animateMotion dur="4.5s" repeatCount="indefinite" begin="1.5s" path="M290,320 L370,390"/>
+            </circle>
+          </svg>
+        </div>
+      </div>
+    </section>
+
+    <!-- ── SUMMARY ── -->
+    <section class="summary-section" id="summary">
+      <div class="summary-inner">
+        <h2 class="summary-headline">Three things SquadUp does<br/>that nothing else does.</h2>
+        <div class="summary-grid">
+          <div class="summary-card">
+            <div class="summary-card-num">01</div>
+            <h3 class="summary-card-title">Everything in one place</h3>
+            <p class="summary-card-body">Voice, streaming, stories, rank tracking, squad matching, and tournaments — built together, not bolted on. No third-party integrations that break.</p>
+          </div>
+          <div class="summary-card">
+            <div class="summary-card-num">02</div>
+            <h3 class="summary-card-title">AI that actually matches</h3>
+            <p class="summary-card-body">Our matching engine considers playstyle, schedule, communication preferences, and play history — not just rank numbers. It's the difference between teammates and squadmates.</p>
+          </div>
+          <div class="summary-card">
+            <div class="summary-card-num">03</div>
+            <h3 class="summary-card-title">Built for how you play</h3>
+            <p class="summary-card-body">Whether you're grinding ranked at 2am, casual on weekends, or building a content brand, SquadUp surfaces what you need without fighting for your attention.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ── CTA ── -->
+    <section class="start-cta">
+      <h2 class="start-cta-title">Ready to stop switching apps?</h2>
+      <p class="start-cta-sub">Join the early access list. No queues, no waiting rooms.</p>
+      <div class="start-cta-btns">
+        <a href="index.html#connect" class="btn-primary">
+          Join the squad
+          <svg width="16" height="16" viewBox="0 0 16 16" fill="none">
+            <path d="M3 8H13M13 8L9 4M13 8L9 12" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/>
+          </svg>
+        </a>
+        <a href="index.html" class="btn-ghost" style="color:var(--cream); border-color:rgba(240,235,224,0.2);">
+          See the platform
+        </a>
+      </div>
+    </section>
+
+  </main>
+
+  <script src="main.js"></script>
+  <script>
+    // ── Animate flow nodes on scroll ──
+    const flowNodes = document.querySelectorAll('.flow-node');
+    const summaryCards = document.querySelectorAll('.summary-card');
+
+    const obs = new IntersectionObserver(entries => {
+      entries.forEach(e => {
+        if (e.isIntersecting) {
+          e.target.classList.add('visible');
+          obs.unobserve(e.target);
+        }
+      });
+    }, { threshold: 0.15, rootMargin: '0px 0px -60px 0px' });
+
+    flowNodes.forEach(n => obs.observe(n));
+    summaryCards.forEach(c => obs.observe(c));
+
+    // ── Navbar scroll ──
+    const navbar = document.getElementById('navbar');
+    window.addEventListener('scroll', () => {
+      navbar.classList.toggle('scrolled', window.scrollY > 10);
+    }, { passive: true });
+    navbar.classList.add('scrolled');
+  </script>
+</body>
+</html>
