@@ -33,6 +33,14 @@ function initRouter() {
     });
   });
 
+  // Handle "How SquadUp Works" links → /start
+  document.querySelectorAll('a[href="/start"]').forEach(link => {
+    link.addEventListener('click', (e) => {
+      e.preventDefault();
+      window.location.href = 'start.html';
+    });
+  });
+
   // Handle back-to-home from story page
   document.querySelectorAll('a[href="/"]').forEach(link => {
     link.addEventListener('click', (e) => {
