@@ -16,12 +16,19 @@
     <div class="nav-inner">
       <a href="/" class="nav-logo">
         <div class="logo-mark">
-          <svg width="28" height="28" viewBox="0 0 28 28" fill="none" xmlns="http://www.w3.org/2000/svg">
-            <rect width="28" height="28" rx="0" fill="#1a1a1a"/>
-            <path d="M7 14C7 10.134 10.134 7 14 7C17.866 7 21 10.134 21 14" stroke="#f0ebe0" stroke-width="2.2" stroke-linecap="round"/>
-            <circle cx="14" cy="17" r="3" fill="#f0ebe0"/>
-            <circle cx="9" cy="17" r="1.5" fill="#c8b99a"/>
-            <circle cx="19" cy="17" r="1.5" fill="#c8b99a"/>
+          <svg width="30" height="30" viewBox="0 0 30 30" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <rect width="30" height="30" fill="#000000"/>
+            <!-- Crosshair outer ring -->
+            <circle cx="15" cy="15" r="8" stroke="#f0ebe0" stroke-width="1.4" fill="none"/>
+            <!-- Crosshair tick marks -->
+            <line x1="15" y1="5" x2="15" y2="8.5" stroke="#f0ebe0" stroke-width="1.8" stroke-linecap="round"/>
+            <line x1="15" y1="21.5" x2="15" y2="25" stroke="#f0ebe0" stroke-width="1.8" stroke-linecap="round"/>
+            <line x1="5" y1="15" x2="8.5" y2="15" stroke="#f0ebe0" stroke-width="1.8" stroke-linecap="round"/>
+            <line x1="21.5" y1="15" x2="25" y2="15" stroke="#f0ebe0" stroke-width="1.8" stroke-linecap="round"/>
+            <!-- Center dot -->
+            <circle cx="15" cy="15" r="2" fill="#c8b99a"/>
+            <!-- Inner ring -->
+            <circle cx="15" cy="15" r="4.5" stroke="#c8b99a" stroke-width="0.8" fill="none" opacity="0.5"/>
           </svg>
         </div>
         <span class="logo-text">SquadUp</span>
@@ -29,7 +36,9 @@
 
       <ul class="nav-links">
         <li><a href="#features" class="nav-link">Features</a></li>
+        <li><a href="#how-it-works" class="nav-link">How It Works</a></li>
         <li><a href="#platform" class="nav-link">Platform</a></li>
+        <li><a href="#pricing" class="nav-link">Pricing</a></li>
         <li><a href="#community" class="nav-link">Community</a></li>
       </ul>
 
@@ -46,10 +55,11 @@
         <button class="nav-hamburger" id="navHamburger" aria-label="Menu">
           <span></span><span></span><span></span>
         </button>
-        <!-- Mobile dropdown — anchored under hamburger -->
         <div class="mobile-menu" id="mobileMenu">
           <a href="#features" class="mobile-link">Features</a>
+          <a href="#how-it-works" class="mobile-link">How It Works</a>
           <a href="#platform" class="mobile-link">Platform</a>
+          <a href="#pricing" class="mobile-link">Pricing</a>
           <a href="#community" class="mobile-link">Community</a>
           <a href="#connect" class="mobile-link mobile-link--cta">Connect →</a>
         </div>
@@ -57,31 +67,26 @@
     </div>
   </nav>
 
-  <!-- ═══════════════════ HERO (split layout) ═══════════════════ -->
+  <!-- ═══════════════════ HERO ═══════════════════ -->
   <section class="hero" id="hero">
     <div class="hero-bg-grid"></div>
     <div class="hero-orb hero-orb--1"></div>
     <div class="hero-orb hero-orb--2"></div>
 
     <div class="hero-split">
-
-      <!-- LEFT: text content -->
       <div class="hero-left">
         <div class="hero-eyebrow reveal">
           <span class="dot-pulse"></span>
           All-in-one gaming social platform
         </div>
-
         <h1 class="hero-title reveal reveal--delay-1">
           Your squad.<br/>
           <em>One place.</em>
         </h1>
-
         <p class="hero-sub reveal reveal--delay-2">
           SquadUp brings together everything you need — stream, chat, share, discover —
           without switching between five apps. Built for gamers who actually play together.
         </p>
-
         <div class="hero-cta reveal reveal--delay-3">
           <a href="#connect" class="btn-primary">
             Join the squad
@@ -91,12 +96,11 @@
           </a>
           <a href="#features" class="btn-ghost">See features</a>
         </div>
-
         <div class="hero-platforms reveal reveal--delay-4">
           <span class="platform-label">Replaces</span>
           <div class="platform-pills">
             <div class="pill">
-              <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r="1" fill="currentColor" stroke="none"/></svg>
+              <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><rect x="2" y="2" width="20" height="20" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r="1" fill="currentColor" stroke="none"/></svg>
               Instagram
             </div>
             <div class="pill">
@@ -115,13 +119,10 @@
         </div>
       </div>
 
-      <!-- RIGHT: animated gamer icons grid -->
       <div class="hero-right reveal reveal--delay-2">
         <div class="gamer-icons-grid">
-
           <div class="gicon-card gicon-card--lg gicon-pulse">
-            <svg class="gicon" viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg">
-              <!-- Gamepad -->
+            <svg class="gicon" viewBox="0 0 48 48" fill="none">
               <rect x="6" y="16" width="36" height="20" rx="10" fill="none" stroke="currentColor" stroke-width="2.5"/>
               <line x1="16" y1="22" x2="16" y2="30" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"/>
               <line x1="12" y1="26" x2="20" y2="26" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"/>
@@ -132,10 +133,8 @@
             </svg>
             <span class="gicon-label">Play</span>
           </div>
-
           <div class="gicon-card gicon-float-1">
             <svg class="gicon" viewBox="0 0 48 48" fill="none">
-              <!-- Live stream camera -->
               <rect x="4" y="12" width="28" height="22" rx="4" fill="none" stroke="currentColor" stroke-width="2.5"/>
               <path d="M32 18l10-5v20l-10-5V18z" stroke="currentColor" stroke-width="2.5" stroke-linejoin="round"/>
               <circle cx="14" cy="23" r="4" fill="currentColor" opacity="0.3"/>
@@ -143,10 +142,8 @@
             </svg>
             <span class="gicon-label">Stream</span>
           </div>
-
           <div class="gicon-card gicon-float-2">
             <svg class="gicon" viewBox="0 0 48 48" fill="none">
-              <!-- Trophy -->
               <path d="M16 6h16v16a8 8 0 0 1-16 0V6z" stroke="currentColor" stroke-width="2.5" fill="none"/>
               <path d="M10 8H16v10a6 6 0 0 1-6-6V8z" stroke="currentColor" stroke-width="2" fill="none"/>
               <path d="M32 8h6v4a6 6 0 0 1-6 6V8z" stroke="currentColor" stroke-width="2" fill="none"/>
@@ -155,10 +152,8 @@
             </svg>
             <span class="gicon-label">Win</span>
           </div>
-
           <div class="gicon-card gicon-float-3">
             <svg class="gicon" viewBox="0 0 48 48" fill="none">
-              <!-- Headset / Squad comms -->
               <path d="M10 26v-4a14 14 0 0 1 28 0v4" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"/>
               <rect x="6" y="26" width="8" height="10" rx="4" fill="none" stroke="currentColor" stroke-width="2.5"/>
               <rect x="34" y="26" width="8" height="10" rx="4" fill="none" stroke="currentColor" stroke-width="2.5"/>
@@ -166,29 +161,23 @@
             </svg>
             <span class="gicon-label">Squad</span>
           </div>
-
           <div class="gicon-card gicon-card--lg gicon-float-4">
             <svg class="gicon" viewBox="0 0 48 48" fill="none">
-              <!-- Lightning / rank -->
               <polygon points="28,4 14,26 22,26 20,44 34,22 26,22" stroke="currentColor" stroke-width="2.5" stroke-linejoin="round" fill="currentColor" opacity="0.15"/>
               <polygon points="28,4 14,26 22,26 20,44 34,22 26,22" stroke="currentColor" stroke-width="2.5" stroke-linejoin="round" fill="none"/>
             </svg>
             <span class="gicon-label">Rank Up</span>
           </div>
-
           <div class="gicon-card gicon-float-5">
             <svg class="gicon" viewBox="0 0 48 48" fill="none">
-              <!-- Chat bubble -->
               <path d="M8 10h32a2 2 0 0 1 2 2v18a2 2 0 0 1-2 2H16l-8 6V12a2 2 0 0 1 2-2z" stroke="currentColor" stroke-width="2.5" stroke-linejoin="round"/>
               <line x1="16" y1="20" x2="32" y2="20" stroke="currentColor" stroke-width="2" stroke-linecap="round" opacity="0.6"/>
               <line x1="16" y1="26" x2="26" y2="26" stroke="currentColor" stroke-width="2" stroke-linecap="round" opacity="0.4"/>
             </svg>
             <span class="gicon-label">Chat</span>
           </div>
-
           <div class="gicon-card gicon-float-6">
             <svg class="gicon" viewBox="0 0 48 48" fill="none">
-              <!-- Crosshair / aim -->
               <circle cx="24" cy="24" r="16" stroke="currentColor" stroke-width="2.5"/>
               <circle cx="24" cy="24" r="4" fill="currentColor" opacity="0.25"/>
               <circle cx="24" cy="24" r="4" stroke="currentColor" stroke-width="2"/>
@@ -199,30 +188,23 @@
             </svg>
             <span class="gicon-label">Aim</span>
           </div>
-
           <div class="gicon-card gicon-float-7">
             <svg class="gicon" viewBox="0 0 48 48" fill="none">
-              <!-- Shield / team -->
               <path d="M24 4l14 5v12c0 9-6 16-14 19C10 37 4 30 4 21V9l20-5z" stroke="currentColor" stroke-width="2.5" stroke-linejoin="round" fill="currentColor" opacity="0.1"/>
               <path d="M24 4l14 5v12c0 9-6 16-14 19C10 37 4 30 4 21V9l20-5z" stroke="currentColor" stroke-width="2.5" stroke-linejoin="round"/>
               <path d="M16 24l6 6 10-12" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/>
             </svg>
             <span class="gicon-label">Defend</span>
           </div>
-
           <div class="gicon-card gicon-float-1">
             <svg class="gicon" viewBox="0 0 48 48" fill="none">
-              <!-- Map / strategy -->
               <path d="M6 10l12-4 12 4 12-4v32l-12 4-12-4-12 4V10z" stroke="currentColor" stroke-width="2.5" stroke-linejoin="round"/>
               <line x1="18" y1="6" x2="18" y2="38" stroke="currentColor" stroke-width="2" stroke-linecap="round" opacity="0.5"/>
               <line x1="30" y1="10" x2="30" y2="42" stroke="currentColor" stroke-width="2" stroke-linecap="round" opacity="0.5"/>
             </svg>
             <span class="gicon-label">Strategy</span>
           </div>
-
         </div>
-
-
       </div>
     </div>
 
@@ -232,238 +214,487 @@
     </div>
   </section>
 
-  <!-- ═══════════════════ SECTION 1 — FEATURES ═══════════════════ -->
-  <section class="section features-section" id="features">
+  <!-- ═══════════════════ FEATURES ═══════════════════ -->
+  <section class="features-section" id="features">
     <div class="section-inner">
-      <div class="section-header reveal">
-        <p class="section-eyebrow">What SquadUp does</p>
-        <h2 class="section-title">Everything your<br/>squad needs.</h2>
-        <p class="section-desc">No more context switching. SquadUp is the single hub that unifies how gamers communicate, play, stream, and grow — built with the same depth as the apps it replaces.</p>
+      <div class="section-header">
+        <p class="section-eyebrow">What you get</p>
+        <h2 class="section-title">Everything your squad needs.</h2>
+        <p class="section-desc">No third-party integrations. No add-ons. No "upgrade to unlock." Every feature ships together, day one.</p>
       </div>
 
-      <!-- Equal-height masonry-style grid: 3 cols, rows auto-sized uniformly -->
       <div class="features-grid">
         <div class="feature-card reveal">
           <div class="feature-icon">
             <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg>
           </div>
-          <h3 class="feature-title">Unified Messaging</h3>
-          <p class="feature-body">Voice, text, and video — all synced across your squads. Channels, DMs, and group calls that feel instant, no matter the platform you came from.</p>
-          <div class="feature-tag">Discord-grade comms</div>
+          <h3 class="feature-title">Squad Chat</h3>
+          <p class="feature-body">Real-time voice and text built for in-game comms. Sub-20ms latency. Roles, channels, and threads — all without leaving the game.</p>
+          <span class="feature-tag">Real-time</span>
         </div>
 
         <div class="feature-card reveal reveal--delay-1">
           <div class="feature-icon">
-            <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M15 10l4.553-2.069A1 1 0 0 1 21 8.87v6.26a1 1 0 0 1-1.447.9L15 14M3 8a2 2 0 0 1 2-2h8a2 2 0 0 1 2 2v8a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8z"/></svg>
+            <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><polygon points="23 7 16 12 23 17 23 7"/><rect x="1" y="5" width="15" height="14" rx="2" ry="2"/></svg>
           </div>
           <h3 class="feature-title">Live Streaming</h3>
-          <p class="feature-body">Stream directly to your squad — zero setup, full quality. Like Twitch but native, embedded inside the same place you chat and connect.</p>
-          <div class="feature-tag">Twitch-level streaming</div>
+          <p class="feature-body">Go live to your squad or the entire community in one click. Multi-stream to Twitch and YouTube simultaneously with zero bitrate drops.</p>
+          <span class="feature-tag">1-click live</span>
         </div>
 
-        <div class="feature-card reveal reveal--delay-2">
+        <div class="feature-card feature-card--warm reveal reveal--delay-2">
           <div class="feature-icon">
-            <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M4 16l4.586-4.586a2 2 0 0 1 2.828 0L16 16m-2-2l1.586-1.586a2 2 0 0 1 2.828 0L20 14m-6-6h.01M6 20h12a2 2 0 0 0 2-2V6a2 2 0 0 0-2-2H6a2 2 0 0 0-2 2v12a2 2 0 0 0 2 2z"/></svg>
+            <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><circle cx="11" cy="11" r="8"/><path d="m21 21-4.35-4.35"/></svg>
           </div>
-          <h3 class="feature-title">Story Feed</h3>
-          <p class="feature-body">Post clips, highlights, and stories to your gaming profile. Your moment, your audience — built for how gamers actually share their plays.</p>
-          <div class="feature-tag">Instagram for gamers</div>
+          <h3 class="feature-title">Squad Matching</h3>
+          <p class="feature-body">AI-powered skill-based matchmaking finds your perfect 5-stack — filtered by game, rank, timezone, and playstyle. No more randos.</p>
+          <span class="feature-tag">AI-powered</span>
         </div>
 
         <div class="feature-card reveal reveal--delay-1">
           <div class="feature-icon">
-            <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><circle cx="12" cy="12" r="10"/><path d="M12 8v4l3 3"/></svg>
+            <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M4 15s1-1 4-1 5 2 8 2 4-1 4-1V3s-1 1-4 1-5-2-8-2-4 1-4 1z"/><line x1="4" y1="22" x2="4" y2="15"/></svg>
           </div>
-          <h3 class="feature-title">Squad Scheduler</h3>
-          <p class="feature-body">Plan sessions, track time zones, and send reminders so your squad's always on time. Never miss a session across regions again.</p>
-          <div class="feature-tag">Cross-timezone sync</div>
+          <h3 class="feature-title">Story Feed</h3>
+          <p class="feature-body">24-hour highlight reels, clip reactions, and ranked updates — your gaming life as a living social feed. Built for content creators and casuals alike.</p>
+          <span class="feature-tag">Social</span>
         </div>
 
         <div class="feature-card reveal reveal--delay-2">
           <div class="feature-icon">
-            <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87M16 3.13a4 4 0 0 1 0 7.75"/></svg>
+            <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><polyline points="22 12 18 12 15 21 9 3 6 12 2 12"/></svg>
           </div>
-          <h3 class="feature-title">Squad Discovery</h3>
-          <p class="feature-body">Find players by game, skill level, region, and playstyle. Build squads or join communities — no cold invites, just real matches with real players.</p>
-          <div class="feature-tag">Match with real players</div>
+          <h3 class="feature-title">Rank Tracker</h3>
+          <p class="feature-body">Live stats, match history, and performance graphs for 340+ games. Know your elo, your trends, and exactly where you're losing LP.</p>
+          <span class="feature-tag">Analytics</span>
         </div>
 
         <div class="feature-card reveal reveal--delay-3">
           <div class="feature-icon">
-            <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><polyline points="22 12 18 12 15 21 9 3 6 12 2 12"/></svg>
+            <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><circle cx="12" cy="12" r="10"/><path d="M12 8v4l3 3"/></svg>
           </div>
-          <h3 class="feature-title">Stats & Rankings</h3>
-          <p class="feature-body">Track your performance across every game in one place. See your rank history, compare with your squad, and celebrate every milestone.</p>
-          <div class="feature-tag">Live leaderboards</div>
+          <h3 class="feature-title">Tournament Hub</h3>
+          <p class="feature-body">Host or join community brackets, clan wars, and weekend tournaments. Automated scheduling, scoring, and prize distribution baked in.</p>
+          <span class="feature-tag">Competitive</span>
         </div>
       </div>
     </div>
   </section>
 
-  <!-- ═══════════════════ SECTION 2 — PLATFORM ═══════════════════ -->
-  <section class="section platform-section" id="platform">
+  <!-- ═══════════════════ HOW IT WORKS ═══════════════════ -->
+  <section class="how-section" id="how-it-works">
+    <div class="section-inner">
+      <div class="how-header">
+        <p class="section-eyebrow">Getting started</p>
+        <h2 class="section-title">Live with your squad<br/>in under <em>three minutes.</em></h2>
+        <p class="section-desc">Zero configuration. Zero import hell. Connect your game accounts and SquadUp does the rest.</p>
+      </div>
+
+      <div class="how-steps">
+
+        <div class="how-step reveal">
+          <div class="how-step-num">01</div>
+          <div class="how-step-body">
+            <div class="how-step-icon">
+              <svg width="28" height="28" viewBox="0 0 32 32" fill="none" stroke="currentColor" stroke-width="2">
+                <circle cx="16" cy="10" r="6"/>
+                <path d="M4 28c0-6.627 5.373-12 12-12s12 5.373 12 12"/>
+              </svg>
+            </div>
+            <h3 class="how-step-title">Create your profile</h3>
+            <p class="how-step-desc">Sign up, link your game accounts — Steam, Riot, PSN, Xbox — and let SquadUp pull your rank history automatically. Your identity, unified.</p>
+          </div>
+          <div class="how-step-connector"></div>
+        </div>
+
+        <div class="how-step reveal reveal--delay-1">
+          <div class="how-step-num">02</div>
+          <div class="how-step-body">
+            <div class="how-step-icon">
+              <svg width="28" height="28" viewBox="0 0 32 32" fill="none" stroke="currentColor" stroke-width="2">
+                <circle cx="10" cy="16" r="6"/>
+                <circle cx="22" cy="10" r="5"/>
+                <circle cx="22" cy="22" r="5"/>
+                <line x1="16" y1="16" x2="17" y2="13"/>
+                <line x1="16" y1="16" x2="17" y2="19"/>
+              </svg>
+            </div>
+            <h3 class="how-step-title">Find your squad</h3>
+            <p class="how-step-desc">Our matching engine surfaces compatible players by game, rank, playstyle, and schedule. Browse squads, get invited, or post an LFG — your call.</p>
+          </div>
+          <div class="how-step-connector"></div>
+        </div>
+
+        <div class="how-step reveal reveal--delay-2">
+          <div class="how-step-num">03</div>
+          <div class="how-step-body">
+            <div class="how-step-icon">
+              <svg width="28" height="28" viewBox="0 0 32 32" fill="none" stroke="currentColor" stroke-width="2">
+                <polygon points="28,4 10,18 14,18 12,28 28,14 24,14" stroke-linejoin="round"/>
+              </svg>
+            </div>
+            <h3 class="how-step-title">Play and grow</h3>
+            <p class="how-step-desc">Drop into voice, stream to your followers, track your rank climb, and share highlights — all from the same screen, all while you queue.</p>
+          </div>
+        </div>
+
+      </div>
+
+      <!-- Press cards grid -->
+      <div class="press-cards reveal reveal--delay-3">
+        <div class="press-card">
+          <div class="press-card-logo">
+            <svg viewBox="0 0 110 28" fill="none">
+              <text x="0" y="21" font-family="Space Grotesk, sans-serif" font-weight="700" font-size="18" fill="currentColor" letter-spacing="-0.5">Tech</text>
+              <text x="50" y="21" font-family="Space Grotesk, sans-serif" font-weight="700" font-size="18" fill="currentColor">Crunch</text>
+            </svg>
+          </div>
+          <p class="press-card-quote">"The Discord killer nobody saw coming"</p>
+          <span class="press-card-tag">Tech Media</span>
+        </div>
+        <div class="press-card">
+          <div class="press-card-logo">
+            <svg viewBox="0 0 90 28" fill="none">
+              <text x="0" y="21" font-family="Space Grotesk, sans-serif" font-weight="700" font-size="17" fill="currentColor">The Verge</text>
+            </svg>
+          </div>
+          <p class="press-card-quote">"Finally, a gaming social app worth switching to"</p>
+          <span class="press-card-tag">Technology</span>
+        </div>
+        <div class="press-card">
+          <div class="press-card-logo">
+            <svg viewBox="0 0 50 28" fill="none">
+              <text x="0" y="22" font-family="Space Grotesk, sans-serif" font-weight="900" font-size="22" fill="currentColor" letter-spacing="-1">IGN</text>
+            </svg>
+          </div>
+          <p class="press-card-quote">"9/10 — Sets a new standard for squad coordination"</p>
+          <span class="press-card-tag">Gaming</span>
+        </div>
+        <div class="press-card">
+          <div class="press-card-logo">
+            <svg viewBox="0 0 70 28" fill="none">
+              <text x="0" y="22" font-family="Space Grotesk, sans-serif" font-weight="900" font-size="20" fill="currentColor" letter-spacing="0.5">WIRED</text>
+            </svg>
+          </div>
+          <p class="press-card-quote">"Built by gamers who actually get it"</p>
+          <span class="press-card-tag">Culture</span>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- ═══════════════════ TRUSTED BY ═══════════════════ -->
+  <section class="trusted-section" id="trusted">
+    <div class="trusted-inner">
+      <p class="trusted-label reveal">Trusted by teams at the world's leading gaming & tech companies</p>
+      <div class="trusted-marquee-wrap reveal reveal--delay-1">
+        <div class="trusted-marquee">
+          <div class="marquee-track">
+            <div class="trust-logo">
+              <svg viewBox="0 0 120 32" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <text x="0" y="24" font-family="Space Grotesk, sans-serif" font-weight="700" font-size="22" fill="currentColor" letter-spacing="-1">RIOT</text>
+                <text x="52" y="24" font-family="Space Grotesk, sans-serif" font-weight="400" font-size="14" fill="currentColor" opacity="0.5">GAMES</text>
+              </svg>
+            </div>
+            <div class="trust-logo">
+              <svg viewBox="0 0 100 32" fill="none">
+                <rect x="0" y="8" width="16" height="16" fill="currentColor" opacity="0.9"/>
+                <text x="22" y="24" font-family="Space Grotesk, sans-serif" font-weight="700" font-size="18" fill="currentColor">EPIC</text>
+              </svg>
+            </div>
+            <div class="trust-logo">
+              <svg viewBox="0 0 140 32" fill="none">
+                <circle cx="14" cy="16" r="10" stroke="currentColor" stroke-width="2.5" fill="none"/>
+                <circle cx="14" cy="16" r="4" fill="currentColor"/>
+                <text x="30" y="22" font-family="Space Grotesk, sans-serif" font-weight="700" font-size="16" fill="currentColor">ACTIVISION</text>
+              </svg>
+            </div>
+            <div class="trust-logo">
+              <svg viewBox="0 0 100 32" fill="none">
+                <path d="M4 28 L16 4 L28 28" stroke="currentColor" stroke-width="2.5" fill="none" stroke-linecap="round" stroke-linejoin="round"/>
+                <text x="36" y="23" font-family="Space Grotesk, sans-serif" font-weight="700" font-size="16" fill="currentColor">NVIDIA</text>
+              </svg>
+            </div>
+            <div class="trust-logo">
+              <svg viewBox="0 0 120 32" fill="none">
+                <rect x="0" y="4" width="24" height="24" rx="0" fill="currentColor" opacity="0.15"/>
+                <rect x="0" y="4" width="24" height="24" rx="0" stroke="currentColor" stroke-width="2"/>
+                <text x="30" y="23" font-family="Space Grotesk, sans-serif" font-weight="700" font-size="16" fill="currentColor">UBISOFT</text>
+              </svg>
+            </div>
+            <div class="trust-logo">
+              <svg viewBox="0 0 120 32" fill="none">
+                <polygon points="12,4 20,28 4,28" stroke="currentColor" stroke-width="2" fill="none" stroke-linejoin="round"/>
+                <text x="28" y="23" font-family="Space Grotesk, sans-serif" font-weight="700" font-size="16" fill="currentColor">RAZER</text>
+              </svg>
+            </div>
+            <div class="trust-logo">
+              <svg viewBox="0 0 110 32" fill="none">
+                <circle cx="12" cy="16" r="10" fill="currentColor" opacity="0.12"/>
+                <circle cx="12" cy="16" r="10" stroke="currentColor" stroke-width="2"/>
+                <text x="28" y="23" font-family="Space Grotesk, sans-serif" font-weight="700" font-size="16" fill="currentColor">VALVE</text>
+              </svg>
+            </div>
+            <div class="trust-logo">
+              <svg viewBox="0 0 130 32" fill="none">
+                <path d="M4 16 Q12 4 20 16 Q28 28 36 16" stroke="currentColor" stroke-width="2.5" fill="none" stroke-linecap="round"/>
+                <text x="44" y="23" font-family="Space Grotesk, sans-serif" font-weight="700" font-size="16" fill="currentColor">CORSAIR</text>
+              </svg>
+            </div>
+            <div class="trust-logo">
+              <svg viewBox="0 0 110 32" fill="none">
+                <rect x="2" y="8" width="20" height="16" rx="3" stroke="currentColor" stroke-width="2" fill="none"/>
+                <line x1="7" y1="13" x2="17" y2="13" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/>
+                <line x1="7" y1="19" x2="14" y2="19" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/>
+                <text x="28" y="23" font-family="Space Grotesk, sans-serif" font-weight="700" font-size="16" fill="currentColor">NEXON</text>
+              </svg>
+            </div>
+            <div class="trust-logo">
+              <svg viewBox="0 0 90 32" fill="none">
+                <path d="M16 4 L28 28 L4 28Z" fill="currentColor" opacity="0.15"/>
+                <path d="M16 4 L28 28 L4 28Z" stroke="currentColor" stroke-width="2" stroke-linejoin="round" fill="none"/>
+                <text x="36" y="23" font-family="Space Grotesk, sans-serif" font-weight="700" font-size="16" fill="currentColor">EA</text>
+              </svg>
+            </div>
+            <!-- duplicate set for seamless loop -->
+            <div class="trust-logo"><svg viewBox="0 0 120 32" fill="none"><text x="0" y="24" font-family="Space Grotesk, sans-serif" font-weight="700" font-size="22" fill="currentColor" letter-spacing="-1">RIOT</text><text x="52" y="24" font-family="Space Grotesk, sans-serif" font-weight="400" font-size="14" fill="currentColor" opacity="0.5">GAMES</text></svg></div>
+            <div class="trust-logo"><svg viewBox="0 0 100 32" fill="none"><rect x="0" y="8" width="16" height="16" fill="currentColor" opacity="0.9"/><text x="22" y="24" font-family="Space Grotesk, sans-serif" font-weight="700" font-size="18" fill="currentColor">EPIC</text></svg></div>
+            <div class="trust-logo"><svg viewBox="0 0 140 32" fill="none"><circle cx="14" cy="16" r="10" stroke="currentColor" stroke-width="2.5" fill="none"/><circle cx="14" cy="16" r="4" fill="currentColor"/><text x="30" y="22" font-family="Space Grotesk, sans-serif" font-weight="700" font-size="16" fill="currentColor">ACTIVISION</text></svg></div>
+            <div class="trust-logo"><svg viewBox="0 0 100 32" fill="none"><path d="M4 28 L16 4 L28 28" stroke="currentColor" stroke-width="2.5" fill="none" stroke-linecap="round" stroke-linejoin="round"/><text x="36" y="23" font-family="Space Grotesk, sans-serif" font-weight="700" font-size="16" fill="currentColor">NVIDIA</text></svg></div>
+            <div class="trust-logo"><svg viewBox="0 0 120 32" fill="none"><rect x="0" y="4" width="24" height="24" rx="0" fill="currentColor" opacity="0.15"/><rect x="0" y="4" width="24" height="24" rx="0" stroke="currentColor" stroke-width="2"/><text x="30" y="23" font-family="Space Grotesk, sans-serif" font-weight="700" font-size="16" fill="currentColor">UBISOFT</text></svg></div>
+            <div class="trust-logo"><svg viewBox="0 0 120 32" fill="none"><polygon points="12,4 20,28 4,28" stroke="currentColor" stroke-width="2" fill="none" stroke-linejoin="round"/><text x="28" y="23" font-family="Space Grotesk, sans-serif" font-weight="700" font-size="16" fill="currentColor">RAZER</text></svg></div>
+            <div class="trust-logo"><svg viewBox="0 0 110 32" fill="none"><circle cx="12" cy="16" r="10" fill="currentColor" opacity="0.12"/><circle cx="12" cy="16" r="10" stroke="currentColor" stroke-width="2"/><text x="28" y="23" font-family="Space Grotesk, sans-serif" font-weight="700" font-size="16" fill="currentColor">VALVE</text></svg></div>
+            <div class="trust-logo"><svg viewBox="0 0 130 32" fill="none"><path d="M4 16 Q12 4 20 16 Q28 28 36 16" stroke="currentColor" stroke-width="2.5" fill="none" stroke-linecap="round"/><text x="44" y="23" font-family="Space Grotesk, sans-serif" font-weight="700" font-size="16" fill="currentColor">CORSAIR</text></svg></div>
+            <div class="trust-logo"><svg viewBox="0 0 110 32" fill="none"><rect x="2" y="8" width="20" height="16" rx="3" stroke="currentColor" stroke-width="2" fill="none"/><line x1="7" y1="13" x2="17" y2="13" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/><line x1="7" y1="19" x2="14" y2="19" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/><text x="28" y="23" font-family="Space Grotesk, sans-serif" font-weight="700" font-size="16" fill="currentColor">NEXON</text></svg></div>
+            <div class="trust-logo"><svg viewBox="0 0 90 32" fill="none"><path d="M16 4 L28 28 L4 28Z" fill="currentColor" opacity="0.15"/><path d="M16 4 L28 28 L4 28Z" stroke="currentColor" stroke-width="2" stroke-linejoin="round" fill="none"/><text x="36" y="23" font-family="Space Grotesk, sans-serif" font-weight="700" font-size="16" fill="currentColor">EA</text></svg></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══════════════════ PLATFORM ═══════════════════ -->
+  <section class="platform-section" id="platform">
     <div class="section-inner">
       <div class="platform-layout">
-        <div class="platform-left reveal">
-          <p class="section-eyebrow">One connected platform</p>
-          <h2 class="section-title">Built for how<br/>gamers actually live.</h2>
-          <p class="section-desc">SquadUp was designed from the ground up to solve context fragmentation — the exhausting habit of having 5 apps open just to play with friends.</p>
+        <div class="platform-left">
+          <p class="section-eyebrow">The platform</p>
+          <h2 class="section-title">One dashboard.<br/>Your entire gaming life.</h2>
+          <p class="section-desc">No more alt-tabbing. No more switching apps mid-game. SquadUp surfaces everything in a single command center — built for speed and built to stay out of your way.</p>
 
           <div class="platform-steps">
-            <div class="pstep reveal">
-              <div class="pstep-num">01</div>
-              <div class="pstep-content">
-                <h4>Create your profile</h4>
-                <p>One identity across every game you play. Showcase your rank, clips, and squad history.</p>
-              </div>
-            </div>
             <div class="pstep reveal reveal--delay-1">
-              <div class="pstep-num">02</div>
+              <span class="pstep-num">—</span>
               <div class="pstep-content">
-                <h4>Build your squad</h4>
-                <p>Invite players from any platform — or let SquadUp's matching engine find your perfect team.</p>
+                <h4>Unified squad inbox</h4>
+                <p>Messages, game invites, match results, and stream alerts — all in one scrollable feed. No notification hell.</p>
               </div>
             </div>
             <div class="pstep reveal reveal--delay-2">
-              <div class="pstep-num">03</div>
+              <span class="pstep-num">—</span>
               <div class="pstep-content">
-                <h4>Play and share</h4>
-                <p>Stream, clip, chat, and post. Everything auto-syncs across your squad's feed.</p>
+                <h4>Cross-game party system</h4>
+                <p>Form a squad once, play across any title together. Your roster follows you from Valorant to Warzone to League without breaking.</p>
+              </div>
+            </div>
+            <div class="pstep reveal reveal--delay-3">
+              <span class="pstep-num">—</span>
+              <div class="pstep-content">
+                <h4>Overlay mode</h4>
+                <p>A non-intrusive in-game overlay keeps you connected without ever dropping you out of fullscreen. Stay in the zone.</p>
+              </div>
+            </div>
+            <div class="pstep reveal reveal--delay-4">
+              <span class="pstep-num">—</span>
+              <div class="pstep-content">
+                <h4>Clip auto-capture</h4>
+                <p>SquadUp detects kills, wins, and big moments automatically. Your highlights are cut and shareable in under 10 seconds.</p>
               </div>
             </div>
           </div>
         </div>
 
-        <div class="platform-right reveal reveal--delay-2">
-          <div class="platform-visual">
-            <!-- New creative: Squad Activity Dashboard -->
-            <div class="squad-dashboard">
-              <!-- Header -->
-              <div class="dash-header">
-                <div class="dash-title-row">
-                  <div class="dash-dot active-dot"></div>
-                  <span class="dash-title">Squad: NightOwls</span>
-                  <span class="dash-badge">6 online</span>
-                </div>
-                <div class="dash-game-tag">Valorant · Immortal Lobby</div>
+        <div class="platform-right platform-visual">
+          <div class="squad-dashboard reveal reveal--delay-1">
+            <div class="dash-header">
+              <div class="dash-title-row">
+                <div class="active-dot"></div>
+                <span class="dash-title">NightOwl Squad</span>
+                <span class="dash-badge">LIVE</span>
               </div>
-
-              <!-- Member row -->
-              <div class="dash-members">
-                <div class="dash-member">
-                  <div class="dmem-av dmem-av--1">
-                    <div class="dmem-status online"></div>
-                  </div>
-                  <span class="dmem-name">xNoScope</span>
-                  <span class="dmem-rank">Immortal</span>
-                </div>
-                <div class="dash-member">
-                  <div class="dmem-av dmem-av--2">
-                    <div class="dmem-status online"></div>
-                  </div>
-                  <span class="dmem-name">phantom_g</span>
-                  <span class="dmem-rank">Diamond</span>
-                </div>
-                <div class="dash-member">
-                  <div class="dmem-av dmem-av--3">
-                    <div class="dmem-status away"></div>
-                  </div>
-                  <span class="dmem-name">raidzen</span>
-                  <span class="dmem-rank">Platinum</span>
-                </div>
-                <div class="dash-member">
-                  <div class="dmem-av dmem-av--4">
-                    <div class="dmem-status online"></div>
-                  </div>
-                  <span class="dmem-name">Zerova</span>
-                  <span class="dmem-rank">Diamond</span>
-                </div>
+              <span class="dash-game-tag">Valorant · Ranked · Diamond II</span>
+            </div>
+            <div class="dash-members">
+              <div class="dash-member">
+                <div class="dmem-av dmem-av--1"><div class="dmem-status online"></div></div>
+                <span class="dmem-name">raidzen</span>
+                <span class="dmem-rank">D2</span>
               </div>
-
-              <!-- Stats row -->
-              <div class="dash-stats">
-                <div class="dash-stat-item">
-                  <span class="dstat-val" id="animWinRate">68%</span>
-                  <span class="dstat-label">Win Rate</span>
-                </div>
-                <div class="dash-stat-sep"></div>
-                <div class="dash-stat-item">
-                  <span class="dstat-val">1.4</span>
-                  <span class="dstat-label">KD Ratio</span>
-                </div>
-                <div class="dash-stat-sep"></div>
-                <div class="dash-stat-item">
-                  <span class="dstat-val">32</span>
-                  <span class="dstat-label">Sessions</span>
-                </div>
+              <div class="dash-member">
+                <div class="dmem-av dmem-av--2"><div class="dmem-status online"></div></div>
+                <span class="dmem-name">xNoScope</span>
+                <span class="dmem-rank">P1</span>
               </div>
-
-              <!-- Activity chart -->
-              <div class="dash-chart-label">
-                <span>Activity this week</span>
-                <span class="dash-chart-up">↑ 18%</span>
+              <div class="dash-member">
+                <div class="dmem-av dmem-av--3"><div class="dmem-status away"></div></div>
+                <span class="dmem-name">Zerova</span>
+                <span class="dmem-rank">D3</span>
               </div>
-              <div class="dash-chart">
-                <div class="dchart-bar" style="height:45%" data-day="Mon"></div>
-                <div class="dchart-bar" style="height:62%" data-day="Tue"></div>
-                <div class="dchart-bar" style="height:38%" data-day="Wed"></div>
-                <div class="dchart-bar" style="height:78%" data-day="Thu"></div>
-                <div class="dchart-bar dchart-bar--active" style="height:91%" data-day="Fri"></div>
-                <div class="dchart-bar" style="height:55%" data-day="Sat"></div>
-                <div class="dchart-bar" style="height:70%" data-day="Sun"></div>
-              </div>
-
-              <!-- Recent activity feed -->
-              <div class="dash-feed">
-                <div class="dfeed-item dfeed-item--win" id="dashFeed1">
-                  <span class="dfeed-icon">🏆</span>
-                  <span class="dfeed-text">Squad won 3 ranked matches in a row</span>
-                  <span class="dfeed-time">2m ago</span>
-                </div>
-                <div class="dfeed-item" id="dashFeed2">
-                  <span class="dfeed-icon">🎯</span>
-                  <span class="dfeed-text">xNoScope hit a new seasonal high rank</span>
-                  <span class="dfeed-time">14m ago</span>
-                </div>
-              </div>
-
-              <!-- Bottom action -->
-              <div class="dash-action">
-                <div class="dash-action-left">
-                  <div class="dash-action-icon">⚡</div>
-                  <span>Ready to queue</span>
-                </div>
-                <button class="dash-queue-btn">Start Match</button>
+              <div class="dash-member">
+                <div class="dmem-av dmem-av--4"><div class="dmem-status online"></div></div>
+                <span class="dmem-name">k1ra</span>
+                <span class="dmem-rank">D1</span>
               </div>
             </div>
-
-            <!-- Floating decorative cards -->
-            <div class="platform-float-badge platform-float-badge--1">
-              <div class="pfb-icon">🔴</div>
-              <div class="pfb-text">
-                <span class="pfb-val">LIVE</span>
-                <span class="pfb-label">xNoScope streaming</span>
+            <div class="dash-stats">
+              <div class="dash-stat-item"><span class="dstat-val">14</span><span class="dstat-label">Wins</span></div>
+              <div class="dash-stat-sep"></div>
+              <div class="dash-stat-item"><span class="dstat-val">73%</span><span class="dstat-label">Win Rate</span></div>
+              <div class="dash-stat-sep"></div>
+              <div class="dash-stat-item"><span class="dstat-val">2.4</span><span class="dstat-label">K/D</span></div>
+              <div class="dash-stat-sep"></div>
+              <div class="dash-stat-item"><span class="dstat-val">+840</span><span class="dstat-label">RR</span></div>
+            </div>
+            <div class="dash-chart-label">
+              <span>Win streak this week</span>
+              <span class="dash-chart-up">↑ 28% vs last week</span>
+            </div>
+            <div class="dash-chart">
+              <div class="dchart-bar" style="height:40%" data-day="M"></div>
+              <div class="dchart-bar" style="height:55%" data-day="T"></div>
+              <div class="dchart-bar" style="height:35%" data-day="W"></div>
+              <div class="dchart-bar" style="height:70%" data-day="T"></div>
+              <div class="dchart-bar" style="height:60%" data-day="F"></div>
+              <div class="dchart-bar dchart-bar--active" style="height:90%" data-day="S"></div>
+              <div class="dchart-bar dchart-bar--active" style="height:80%" data-day="S"></div>
+            </div>
+            <div class="dash-feed">
+              <div class="dfeed-item dfeed-item--win" id="dashFeed1">
+                <span class="dfeed-icon">🏆</span>
+                <span class="dfeed-text">Squad won 3 ranked matches in a row</span>
+                <span class="dfeed-time">2m ago</span>
+              </div>
+              <div class="dfeed-item" id="dashFeed2">
+                <span class="dfeed-icon">⚡</span>
+                <span class="dfeed-text">raidzen just ranked up to Diamond II</span>
+                <span class="dfeed-time">8m ago</span>
               </div>
             </div>
-            <div class="platform-float-badge platform-float-badge--2">
-              <div class="pfb-icon">⚡</div>
-              <div class="pfb-text">
-                <span class="pfb-val">28ms</span>
-                <span class="pfb-label">Latency</span>
+            <div class="dash-action">
+              <div class="dash-action-left">
+                <span class="dash-action-icon">🎮</span>
+                <span>Queue as squad</span>
               </div>
+              <button class="dash-queue-btn" onclick="window.location.href='match.html'">Find Match →</button>
             </div>
           </div>
+
         </div>
       </div>
     </div>
   </section>
 
-  <!-- ═══════════════════ SECTION 3 — COMMUNITY ═══════════════════ -->
-  <section class="section community-section" id="community">
+  <!-- ═══════════════════ PRICING ═══════════════════ -->
+  <section class="pricing-section" id="pricing">
     <div class="section-inner">
-      <div class="community-header reveal">
-        <p class="section-eyebrow">A living community</p>
-        <h2 class="section-title">Join 80,000+ gamers<br/>already squaded up.</h2>
+      <div class="section-header">
+        <p class="section-eyebrow">Pricing</p>
+        <h2 class="section-title">Start free. Scale with your squad.</h2>
+        <p class="section-desc">No hidden fees, no feature gating on the essentials. Upgrade when your squad outgrows the free tier — not before.</p>
+      </div>
+
+      <div class="pricing-grid">
+
+        <div class="pricing-card reveal">
+          <div class="pricing-card-top">
+            <span class="pricing-plan">Rookie</span>
+            <div class="pricing-amount">
+              <span class="pricing-currency">$</span>
+              <span class="pricing-price">0</span>
+              <span class="pricing-period">/ mo</span>
+            </div>
+            <p class="pricing-tagline">Everything you need to get started with your squad.</p>
+          </div>
+          <ul class="pricing-features">
+            <li class="pf-item pf-yes">Squad chat (up to 10 members)</li>
+            <li class="pf-item pf-yes">Basic rank tracking (3 games)</li>
+            <li class="pf-item pf-yes">Story feed & clips</li>
+            <li class="pf-item pf-yes">Squad matching — 5/day</li>
+            <li class="pf-item pf-no">Live streaming</li>
+            <li class="pf-item pf-no">Overlay mode</li>
+            <li class="pf-item pf-no">Tournament hosting</li>
+            <li class="pf-item pf-no">Priority matchmaking</li>
+          </ul>
+          <a href="#connect" class="btn-ghost pricing-btn">Get started free</a>
+        </div>
+
+        <div class="pricing-card pricing-card--featured reveal reveal--delay-1">
+          <div class="pricing-badge-wrap">
+            <span class="pricing-popular">Most Popular</span>
+          </div>
+          <div class="pricing-card-top">
+            <span class="pricing-plan pricing-plan--light">Pro</span>
+            <div class="pricing-amount">
+              <span class="pricing-currency pricing-currency--light">$</span>
+              <span class="pricing-price pricing-price--light">12</span>
+              <span class="pricing-period pricing-period--light">/ mo</span>
+            </div>
+            <p class="pricing-tagline pricing-tagline--light">For serious players who live in the queue.</p>
+          </div>
+          <ul class="pricing-features pricing-features--light">
+            <li class="pf-item pf-yes">Squad chat (unlimited members)</li>
+            <li class="pf-item pf-yes">Full rank tracking (340+ games)</li>
+            <li class="pf-item pf-yes">Story feed, clips & reactions</li>
+            <li class="pf-item pf-yes">Squad matching — unlimited</li>
+            <li class="pf-item pf-yes">Live streaming (1080p60)</li>
+            <li class="pf-item pf-yes">In-game overlay mode</li>
+            <li class="pf-item pf-yes">Tournament hosting (up to 64)</li>
+            <li class="pf-item pf-no">White-label squad branding</li>
+          </ul>
+          <a href="#connect" class="btn-primary pricing-btn pricing-btn--light">
+            Join Pro
+            <svg width="14" height="14" viewBox="0 0 14 14" fill="none">
+              <path d="M2 7H12M12 7L8 3M12 7L8 11" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/>
+            </svg>
+          </a>
+        </div>
+
+        <div class="pricing-card reveal reveal--delay-2">
+          <div class="pricing-card-top">
+            <span class="pricing-plan">Clan</span>
+            <div class="pricing-amount">
+              <span class="pricing-currency">$</span>
+              <span class="pricing-price">39</span>
+              <span class="pricing-period">/ mo</span>
+            </div>
+            <p class="pricing-tagline">For orgs, esports teams, and content houses.</p>
+          </div>
+          <ul class="pricing-features">
+            <li class="pf-item pf-yes">Everything in Pro</li>
+            <li class="pf-item pf-yes">White-label squad branding</li>
+            <li class="pf-item pf-yes">Unlimited tournament hosting</li>
+            <li class="pf-item pf-yes">Org analytics dashboard</li>
+            <li class="pf-item pf-yes">Dedicated support manager</li>
+            <li class="pf-item pf-yes">API access</li>
+            <li class="pf-item pf-yes">Custom integrations</li>
+            <li class="pf-item pf-yes">SLA guarantee — 99.99%</li>
+          </ul>
+          <a href="#connect" class="btn-ghost pricing-btn">Contact sales</a>
+        </div>
+
+      </div>
+
+      <p class="pricing-note reveal">All plans include a 14-day free trial. No credit card required to start.</p>
+    </div>
+  </section>
+
+  <!-- ═══════════════════ COMMUNITY ═══════════════════ -->
+  <section class="community-section" id="community">
+    <div class="section-inner">
+      <div class="community-header">
+        <p class="section-eyebrow">Community</p>
+        <h2 class="section-title">Numbers that don't lie.</h2>
       </div>
 
       <div class="community-grid">
@@ -550,21 +781,22 @@
     </div>
   </section>
 
-  <!-- ═══════════════════ FOOTER (compact) ═══════════════════ -->
+  <!-- ═══════════════════ FOOTER ═══════════════════ -->
   <footer class="footer">
     <div class="footer-inner">
       <div class="footer-compact">
-
-        <!-- Brand -->
         <div class="footer-brand">
           <a href="/" class="nav-logo footer-logo">
             <div class="logo-mark">
-              <svg width="24" height="24" viewBox="0 0 28 28" fill="none">
-                <rect width="28" height="28" rx="0" fill="#1a1a1a"/>
-                <path d="M7 14C7 10.134 10.134 7 14 7C17.866 7 21 10.134 21 14" stroke="#f0ebe0" stroke-width="2.2" stroke-linecap="round"/>
-                <circle cx="14" cy="17" r="3" fill="#f0ebe0"/>
-                <circle cx="9" cy="17" r="1.5" fill="#c8b99a"/>
-                <circle cx="19" cy="17" r="1.5" fill="#c8b99a"/>
+              <svg width="26" height="26" viewBox="0 0 30 30" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <rect width="30" height="30" fill="#000000"/>
+                <circle cx="15" cy="15" r="8" stroke="#f0ebe0" stroke-width="1.4" fill="none"/>
+                <line x1="15" y1="5" x2="15" y2="8.5" stroke="#f0ebe0" stroke-width="1.8" stroke-linecap="round"/>
+                <line x1="15" y1="21.5" x2="15" y2="25" stroke="#f0ebe0" stroke-width="1.8" stroke-linecap="round"/>
+                <line x1="5" y1="15" x2="8.5" y2="15" stroke="#f0ebe0" stroke-width="1.8" stroke-linecap="round"/>
+                <line x1="21.5" y1="15" x2="25" y2="15" stroke="#f0ebe0" stroke-width="1.8" stroke-linecap="round"/>
+                <circle cx="15" cy="15" r="2" fill="#c8b99a"/>
+                <circle cx="15" cy="15" r="4.5" stroke="#c8b99a" stroke-width="0.8" fill="none" opacity="0.5"/>
               </svg>
             </div>
             <span class="logo-text">SquadUp</span>
@@ -572,23 +804,29 @@
           <p class="footer-tagline">Your squad. One place.</p>
         </div>
 
-        <!-- About Us (only link group) -->
         <div class="footer-about">
           <p class="footer-about-text">Built by gamers who were tired of juggling five apps to play with friends. SquadUp is the platform we always wanted to exist.</p>
-          <a href="/story" class="btn-about-story">
-            Read our story
-            <svg width="13" height="13" viewBox="0 0 14 14" fill="none">
-              <path d="M2 7H12M12 7L8 3M12 7L8 11" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/>
-            </svg>
-          </a>
+          <div class="footer-links-row">
+            <a href="/story" class="btn-about-story">
+              Read our story
+              <svg width="13" height="13" viewBox="0 0 14 14" fill="none">
+                <path d="M2 7H12M12 7L8 3M12 7L8 11" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/>
+              </svg>
+            </a>
+            <a href="/start" class="btn-how-works">
+              How SquadUp works
+              <svg width="13" height="13" viewBox="0 0 14 14" fill="none">
+                <path d="M2 7H12M12 7L8 3M12 7L8 11" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/>
+              </svg>
+            </a>
+          </div>
         </div>
 
-        <!-- Socials -->
         <div class="footer-socials-col">
           <p class="footer-socials-label">Find us</p>
           <div class="footer-socials">
             <a href="#" class="social-icon" aria-label="Instagram">
-              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r="1" fill="currentColor" stroke="none"/></svg>
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><rect x="2" y="2" width="20" height="20" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r="1" fill="currentColor" stroke="none"/></svg>
             </a>
             <a href="#" class="social-icon" aria-label="Discord">
               <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M20.317 4.37a19.791 19.791 0 0 0-4.885-1.515.074.074 0 0 0-.079.037c-.21.375-.444.864-.608 1.25a18.27 18.27 0 0 0-5.487 0 12.64 12.64 0 0 0-.617-1.25.077.077 0 0 0-.079-.037A19.736 19.736 0 0 0 3.677 4.37a.07.07 0 0 0-.032.027C.533 9.046-.32 13.58.099 18.057a.082.082 0 0 0 .031.057 19.9 19.9 0 0 0 5.993 3.03.078.078 0 0 0 .084-.028c.462-.63.874-1.295 1.226-1.994a.076.076 0 0 0-.041-.106 13.107 13.107 0 0 1-1.872-.892.077.077 0 0 1-.008-.128 10.2 10.2 0 0 0 .372-.292.074.074 0 0 1 .077-.01c3.928 1.793 8.18 1.793 12.062 0a.074.074 0 0 1 .078.01c.12.098.246.198.373.292a.077.077 0 0 1-.006.127 12.299 12.299 0 0 1-1.873.892.077.077 0 0 0-.041.107c.36.698.772 1.362 1.225 1.993a.076.076 0 0 0 .084.028 19.839 19.839 0 0 0 6.002-3.03.077.077 0 0 0 .032-.054c.5-5.177-.838-9.674-3.549-13.66a.061.061 0 0 0-.031-.03z"/></svg>
